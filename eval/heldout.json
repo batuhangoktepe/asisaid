@@ -1,0 +1,922 @@
+{
+ "en": {
+  "brevity": [
+   "your answers are way too long, i dont need a novel every time",
+   "what does this regex do? keep it brief",
+   "tl;dr pls",
+   "in short, what's the fix?",
+   "briefly explain what the useEffect cleanup function is for",
+   "just give me the command, no essay",
+   "ok that worked. btw ur replies are kinda long, can u trim them down a bit",
+   "can you be more concise? reading this on my phone lol",
+   "short answer only: is it safe to delete .next/cache",
+   "way too verbose man. one or two sentences max"
+  ],
+  "not_brevity": [
+   "make this function shorter, it's like 200 lines and does 4 different things",
+   "the variable name userAuthenticationTokenExpirationTimestamp is too long, rename it to something sane",
+   "summarize this log file and tell me where the crash starts",
+   "shorten the URLs in the share links, use the slug instead of the full uuid",
+   "why does len(items) return 0 here when the list clearly has stuff in it",
+   "add a max length of 280 chars to the bio field and show a counter under it",
+   "can you set up eslint with the airbnb config for this repo",
+   "the CI build takes forever, can we cache the docker layers"
+  ],
+  "detail": [
+   "explain in detail how the event loop handles microtasks vs macrotasks",
+   "walk me through this migration step by step, really thorough pls, i want to understand every line",
+   "give me a detailed breakdown of why this query is slow, include the query plan stuff",
+   "go deep on this one: explain the whole oauth flow end to end and dont skip anything"
+  ],
+  "lift": [
+   "ok you can go back to longer answers now, detailed is fine",
+   "forget what i said earlier about keeping it short, full explanations are welcome from here on",
+   "nvm the brevity thing, feel free to be as detailed as you want again"
+  ],
+  "standing": [
+   "never use emoji in your replies",
+   "from now on always answer in bullet points",
+   "always run the tests after you change anything",
+   "for the rest of this session dont ever commit without asking me first"
+  ],
+  "one_off": [
+   "for now just say ready",
+   "this time skip the tests, i just want to see if it compiles",
+   "just for this one file dont bother with types, any is fine"
+  ]
+ },
+ "tr": {
+  "brevity": [
+   "cevapların çok uzun ya, biraz kısalt",
+   "bu regex ne işe yarıyor? kısaca",
+   "özetle sorun ne",
+   "kısa kes, sadece komutu ver",
+   "destan yazma bana tek satır yeter",
+   "tamam çalıştı. bu arada cevapların çok uzun oluyo, daha kısa yazar mısın",
+   "kısaca söyle: bu migration geri alınabilir mi",
+   "bu kadar detaya gerek yok net cevap ver",
+   "tl;dr ne yapmam lazım",
+   "çok laf kalabalığı oldu, özünü söyle"
+  ],
+  "not_brevity": [
+   "bu fonksiyonu kısalt, 150 satır olmuş",
+   "değişken ismi çok uzun, kullaniciOturumAcmaZamani yerine daha kısa bir şey bul",
+   "şu log dosyasını özetle, hata nerede başlıyor",
+   "paylaşım linklerini kısalt, uuid yerine slug kullan",
+   "dizinin uzunluğu neden 0 dönüyor anlamadım",
+   "şifre alanına minimum 8 karakter uzunluk kontrolü ekle",
+   "docker compose dosyasına redis ekler misin",
+   "ci'da testler neden bu kadar uzun sürüyor bakabilir misin"
+  ],
+  "detail": [
+   "bunu detaylı açıklar mısın, her adımı anlamak istiyorum",
+   "jwt refresh token akışını en ince ayrıntısına kadar anlat",
+   "bu query neden yavaş, ayrıntılı bir şekilde açıkla execution plan dahil",
+   "react reconciliation olayını derinlemesine anlatır mısın hiçbir şeyi atlama"
+  ],
+  "lift": [
+   "tamam artık uzun cevap verebilirsin, detaylı olabilir",
+   "kısa tut demiştim ya unut onu, bundan sonra detaylı anlatabilirsin",
+   "kısalık kuralını kaldırıyorum, açıklamalar yine uzun olabilir"
+  ],
+  "standing": [
+   "bundan sonra hep türkçe cevap ver",
+   "asla emoji kullanma",
+   "her değişiklikten sonra testleri her zaman çalıştır",
+   "bundan sonra commit mesajlarını hep ingilizce yaz"
+  ],
+  "one_off": [
+   "şimdilik sadece hazır de",
+   "bu sefer testleri atla",
+   "şu an için lint hatalarını boşver sonra bakarız"
+  ]
+ },
+ "es": {
+  "brevity": [
+   "tus respuestas son larguísimas, no necesito un libro",
+   "qué hace este regex? resumido porfa",
+   "en pocas palabras, cuál es el fix?",
+   "explícame brevemente qué hace el middleware de auth",
+   "solo dame el comando, sin rollo",
+   "ok funcionó. oye sé más conciso porfavor, me cuesta leer tanto",
+   "respuesta corta: puedo borrar la carpeta dist?",
+   "no me escribas un testamento jaja, ve al grano",
+   "demasiado texto, resúmelo en 2 líneas",
+   "tl;dr? no tengo tiempo"
+  ],
+  "not_brevity": [
+   "haz esta función más corta, tiene demasiados if anidados",
+   "el nombre de la variable es muy largo, cámbialo a algo más legible",
+   "resume este archivo de logs y dime dónde empieza el error",
+   "acorta las URLs de la API, /api/v1/usuarios/obtener-todos es horrible",
+   "por qué length me da undefined en este objeto",
+   "agrega validación de longitud máxima de 50 caracteres al campo nombre",
+   "configúrame prettier con indentación de 2 espacios",
+   "el deploy tarda muchísimo, se puede paralelizar algo?"
+  ],
+  "detail": [
+   "explícame en detalle cómo funciona el garbage collector de V8",
+   "quiero una explicación detallada, paso a paso, de este algoritmo",
+   "explícalo a fondo, no tengo prisa, quiero entenderlo bien",
+   "dame un análisis exhaustivo de por qué falla el test de integración"
+  ],
+  "lift": [
+   "ya puedes volver a dar respuestas largas, detalladas está bien",
+   "olvida lo de ser breve, a partir de ahora explica todo con detalle",
+   "ok ya no hace falta que seas tan corto, extiéndete lo que quieras"
+  ],
+  "standing": [
+   "a partir de ahora responde siempre en español",
+   "nunca uses emojis",
+   "siempre corre los tests después de cada cambio",
+   "de aquí en adelante usa siempre pnpm, nunca npm"
+  ],
+  "one_off": [
+   "por ahora solo di listo",
+   "esta vez sáltate los tests",
+   "solo por esta vez haz push directo a main"
+  ]
+ },
+ "pt": {
+  "brevity": [
+   "suas respostas tão muito longas mano",
+   "resumindo, qual é o problema?",
+   "explica rapidinho o que é um closure",
+   "só me passa o comando, sem textão",
+   "seja mais conciso por favor",
+   "resposta curta: dá pra usar async no constructor?",
+   "funcionou valeu. mas menos texto pfv, ninguém lê isso tudo",
+   "o que mudou nessa versão? brevemente",
+   "não precisa explicar tudo, vai direto ao ponto",
+   "tl;dr pls, tô sem tempo"
+  ],
+  "not_brevity": [
+   "deixa essa função mais curta, tá enorme",
+   "o nome dessa variável tá muito longo, renomeia",
+   "faz um resumo desse arquivo de log e me diz onde quebrou",
+   "encurta as URLs geradas pelo serviço de compartilhamento",
+   "por que o length do array tá vindo 0?",
+   "adiciona validação de tamanho mínimo de 8 caracteres na senha",
+   "configura o husky pra rodar o lint antes do commit",
+   "o build tá demorando muito no github actions, tem como acelerar?"
+  ],
+  "detail": [
+   "me explica em detalhes como funciona o useMemo",
+   "quero uma explicação bem detalhada desse fluxo de autenticação",
+   "explica a fundo, passo a passo, o que esse script faz",
+   "pode detalhar bastante? quero entender cada parte do pipeline"
+  ],
+  "lift": [
+   "pode voltar a responder com mais detalhes agora",
+   "esquece aquilo de ser breve, daqui pra frente pode explicar tudo",
+   "tá liberado respostas longas de novo"
+  ],
+  "standing": [
+   "a partir de agora sempre responde em português",
+   "nunca use emoji",
+   "sempre roda os testes depois de qualquer alteração",
+   "daqui pra frente nunca mexa no arquivo .env"
+  ],
+  "one_off": [
+   "por enquanto só diz pronto",
+   "dessa vez pula os testes",
+   "só agora ignora os warnings do lint"
+  ]
+ },
+ "fr": {
+  "brevity": [
+   "tes réponses sont beaucoup trop longues",
+   "fais court stp",
+   "en bref, c'est quoi le fix ?",
+   "explique brièvement ce que fait ce hook",
+   "donne moi juste la commande, pas un roman",
+   "ça marche merci. par contre sois plus concis, c'est illisible",
+   "réponse courte : je peux supprimer le dossier build ?",
+   "trop de blabla, va droit au but",
+   "pourquoi ça plante ? en deux mots",
+   "tl;dr ? j'ai pas le temps de tout lire"
+  ],
+  "not_brevity": [
+   "rends cette fonction plus courte, elle fait 300 lignes",
+   "le nom de la variable est trop long, renomme-la",
+   "fais un résumé de ce fichier de logs et dis moi où ça casse",
+   "raccourcis les URLs des routes de l'API",
+   "pourquoi la longueur du tableau est toujours 0",
+   "ajoute une longueur max de 100 caractères sur le champ titre",
+   "tu peux mettre en place un docker-compose avec postgres",
+   "les tests prennent trop longtemps, on peut les paralléliser ?"
+  ],
+  "detail": [
+   "explique-moi en détail comment marche le borrow checker",
+   "je veux une explication détaillée, étape par étape",
+   "vas-y à fond, explique tout le flux OAuth sans rien sauter",
+   "peux-tu détailler précisément pourquoi cette requête SQL est lente"
+  ],
+  "lift": [
+   "c'est bon tu peux refaire des réponses longues maintenant",
+   "oublie ce que j'ai dit sur être bref, à partir de maintenant tu peux détailler",
+   "plus besoin d'être court, développe autant que tu veux désormais"
+  ],
+  "standing": [
+   "à partir de maintenant réponds toujours en français",
+   "n'utilise jamais d'emoji",
+   "lance toujours les tests après chaque modif",
+   "désormais écris tous les messages de commit au format conventional commits"
+  ],
+  "one_off": [
+   "pour l'instant dis juste prêt",
+   "cette fois-ci saute les tests",
+   "juste pour cette fois, ignore les erreurs de lint"
+  ]
+ },
+ "de": {
+  "brevity": [
+   "deine antworten sind viel zu lang",
+   "fass dich kurz bitte",
+   "kurz gesagt, was ist der fix?",
+   "erklär kurz was dieser decorator macht",
+   "gib mir einfach den befehl, keinen roman",
+   "hat geklappt danke. aber bitte knapper antworten, das ist echt zu viel text",
+   "kurze antwort: kann ich den cache ordner löschen?",
+   "zu viel gelaber, auf den punkt bitte",
+   "warum schlägt der build fehl? in einem satz",
+   "tl;dr? hab keine zeit für das alles"
+  ],
+  "not_brevity": [
+   "mach diese funktion kürzer, die ist viel zu groß",
+   "der variablenname ist zu lang, benenn den um",
+   "fass diese logdatei zusammen und sag mir wo der fehler anfängt",
+   "kürze die URLs in der sitemap",
+   "warum ist die länge des arrays immer 0",
+   "füge eine maximale länge von 255 zeichen fürs email feld hinzu",
+   "kannst du mir einen github actions workflow für node aufsetzen",
+   "die tests dauern ewig lang, kann man die parallelisieren?"
+  ],
+  "detail": [
+   "erklär mir das bitte ausführlich, ich will jeden schritt verstehen",
+   "kannst du detailliert erklären wie der garbage collector in go funktioniert",
+   "geh richtig in die tiefe und erklär den ganzen auth flow",
+   "ich brauch eine ausführliche erklärung warum die query so langsam ist"
+  ],
+  "lift": [
+   "du kannst jetzt wieder ausführlicher antworten",
+   "vergiss das mit dem kurzfassen, ab jetzt gerne wieder detailliert",
+   "lange antworten sind wieder ok"
+  ],
+  "standing": [
+   "ab jetzt antworte immer auf deutsch",
+   "benutz nie emojis",
+   "führ nach jeder änderung immer die tests aus",
+   "von nun an niemals direkt auf main pushen"
+  ],
+  "one_off": [
+   "sag erstmal nur bereit",
+   "diesmal die tests überspringen",
+   "nur dieses eine mal, ignorier die lint warnungen"
+  ]
+ },
+ "it": {
+  "brevity": [
+   "le tue risposte sono troppo lunghe",
+   "sii breve per favore",
+   "in breve, qual è il fix?",
+   "spiegami brevemente cosa fa questo hook",
+   "dammi solo il comando, niente papiri",
+   "ok funziona. però più conciso pls, troppa roba da leggere",
+   "risposta breve: posso cancellare node_modules?",
+   "troppo testo, vai al sodo",
+   "perché crasha? in due parole",
+   "tl;dr? non ho tempo"
+  ],
+  "not_brevity": [
+   "rendi questa funzione più corta, è enorme",
+   "il nome della variabile è troppo lungo, rinominala",
+   "fammi un riassunto di questo file di log e dimmi dove inizia l'errore",
+   "accorcia gli URL delle route",
+   "perché la lunghezza dell'array è sempre zero",
+   "aggiungi una validazione sulla lunghezza massima del campo nome",
+   "mi configuri eslint con prettier",
+   "la build ci mette troppo, si può velocizzare?"
+  ],
+  "detail": [
+   "spiegami nel dettaglio come funziona l'event loop",
+   "voglio una spiegazione dettagliata passo passo",
+   "approfondisci bene questa parte, non saltare niente",
+   "puoi spiegarmi in modo esaustivo perché fallisce il test?"
+  ],
+  "lift": [
+   "ok ora puoi tornare a risposte lunghe",
+   "dimentica quello che ho detto sull'essere breve, da ora in poi puoi dettagliare",
+   "non serve più essere sintetico, scrivi pure quanto vuoi"
+  ],
+  "standing": [
+   "d'ora in poi rispondi sempre in italiano",
+   "non usare mai emoji",
+   "esegui sempre i test dopo ogni modifica",
+   "da adesso in poi non fare mai push senza chiedermelo"
+  ],
+  "one_off": [
+   "per ora dì solo pronto",
+   "questa volta salta i test",
+   "solo per stavolta ignora i warning"
+  ]
+ },
+ "nl": {
+  "brevity": [
+   "je antwoorden zijn echt veel te lang",
+   "hou het kort aub",
+   "kortom, wat is de fix?",
+   "leg kort uit wat deze functie doet",
+   "geef me gewoon het commando, geen heel verhaal",
+   "werkt nu, thx. kan het wel wat beknopter voortaan, is veel tekst",
+   "kort antwoord: kan ik de dist map weggooien?",
+   "te veel tekst, kom to the point",
+   "waarom faalt de build? in één zin",
+   "tl;dr graag"
+  ],
+  "not_brevity": [
+   "maak deze functie korter, hij is veel te groot",
+   "de variabelenaam is te lang, hernoem hem",
+   "vat dit logbestand samen en zeg waar het misgaat",
+   "verkort de urls in de router",
+   "waarom is de lengte van de array altijd 0",
+   "voeg een max lengte van 50 tekens toe aan het naamveld",
+   "kun je een dockerfile maken voor deze app",
+   "de pipeline duurt lang, kan dat sneller?"
+  ],
+  "detail": [
+   "leg het uitgebreid uit, ik wil elke stap snappen",
+   "kun je gedetailleerd uitleggen hoe de cache invalidatie werkt",
+   "ga er diep op in, de hele auth flow van begin tot eind",
+   "ik wil een grondige uitleg waarom deze query traag is"
+  ],
+  "lift": [
+   "je mag nu weer langere antwoorden geven",
+   "vergeet dat kort houden, vanaf nu mag het weer uitgebreid",
+   "uitgebreide antwoorden zijn weer prima"
+  ],
+  "standing": [
+   "antwoord vanaf nu altijd in het nederlands",
+   "gebruik nooit emoji's",
+   "draai altijd de tests na een wijziging",
+   "vanaf nu nooit direct naar main pushen"
+  ],
+  "one_off": [
+   "zeg voor nu alleen klaar",
+   "deze keer de tests overslaan",
+   "alleen nu even de lint errors negeren"
+  ]
+ },
+ "pl": {
+  "brevity": [
+   "twoje odpowiedzi są za długie",
+   "krótko proszę",
+   "w skrócie, jaki jest fix?",
+   "wyjaśnij krótko co robi ten hook",
+   "daj mi tylko komendę, bez wypracowania",
+   "działa dzięki. ale pisz bardziej zwięźle pls, za dużo tego",
+   "krótka odpowiedź: mogę usunąć folder build?",
+   "za dużo lania wody, do rzeczy",
+   "czemu build się wywala? jednym zdaniem",
+   "tl;dr? nie mam czasu czytać"
+  ],
+  "not_brevity": [
+   "skróć tę funkcję, ma 200 linii",
+   "nazwa zmiennej jest za długa, zmień ją",
+   "podsumuj ten plik z logami i powiedz gdzie zaczyna się błąd",
+   "skróć URLe w routerze",
+   "czemu długość tablicy zawsze jest 0",
+   "dodaj walidację maksymalnej długości 100 znaków dla pola tytuł",
+   "skonfiguruj mi eslinta z prettierem",
+   "testy trwają strasznie długo na CI, da się to przyspieszyć?"
+  ],
+  "detail": [
+   "wyjaśnij mi to szczegółowo, krok po kroku",
+   "potrzebuję dokładnego wyjaśnienia jak działa ten algorytm",
+   "rozpisz szczegółowo cały flow autoryzacji",
+   "wytłumacz dogłębnie czemu to zapytanie jest wolne"
+  ],
+  "lift": [
+   "możesz już znowu odpowiadać dłużej",
+   "zapomnij o tym krótko, od teraz możesz pisać szczegółowo",
+   "długie odpowiedzi znowu są ok"
+  ],
+  "standing": [
+   "od teraz zawsze odpowiadaj po polsku",
+   "nigdy nie używaj emoji",
+   "zawsze odpalaj testy po każdej zmianie",
+   "od teraz nigdy nie commituj bez pytania"
+  ],
+  "one_off": [
+   "na razie powiedz tylko gotowe",
+   "tym razem pomiń testy",
+   "tylko teraz zignoruj ostrzeżenia lintera"
+  ]
+ },
+ "ru": {
+  "brevity": [
+   "у тебя слишком длинные ответы",
+   "покороче плиз",
+   "если коротко, в чём фикс?",
+   "кратко объясни что делает этот хук",
+   "просто дай команду, без простыни текста",
+   "заработало спс. только пиши лаконичнее, многабукаф",
+   "коротко: можно удалить папку dist?",
+   "слишком много воды, давай по делу",
+   "почему падает билд? в двух словах",
+   "tl;dr? нет времени всё читать"
+  ],
+  "not_brevity": [
+   "сделай эту функцию короче, она на 200 строк",
+   "имя переменной слишком длинное, переименуй",
+   "сделай summary этого лог файла и покажи где начинается ошибка",
+   "сократи URL в роутере",
+   "почему длина массива всегда 0",
+   "добавь валидацию максимальной длины 100 символов для поля title",
+   "настрой мне eslint с prettier",
+   "тесты идут слишком долго в CI, можно ускорить?"
+  ],
+  "detail": [
+   "объясни подробно, пошагово",
+   "мне нужно детальное объяснение как работает этот алгоритм",
+   "распиши подробно весь auth flow",
+   "объясни максимально развернуто почему этот запрос медленный"
+  ],
+  "lift": [
+   "можешь снова отвечать подробно",
+   "забудь про покороче, теперь можно развернуто",
+   "длинные ответы снова норм"
+  ],
+  "standing": [
+   "с этого момента всегда отвечай на русском",
+   "никогда не используй эмодзи",
+   "всегда запускай тесты после изменений",
+   "отныне никогда не коммить без моего подтверждения"
+  ],
+  "one_off": [
+   "пока просто скажи готово",
+   "в этот раз пропусти тесты",
+   "только сейчас игнорируй варнинги линтера"
+  ]
+ },
+ "uk": {
+  "brevity": [
+   "твої відповіді занадто довгі",
+   "коротше будь ласка",
+   "якщо коротко, в чому фікс?",
+   "коротко поясни що робить цей хук",
+   "просто дай команду, без простирадла тексту",
+   "працює дякую. але можна лаконічніше, забагато читати",
+   "коротка відповідь: можна видалити папку build?",
+   "забагато води, давай по суті",
+   "чому падає білд? двома словами",
+   "tl;dr? нема часу читати"
+  ],
+  "not_brevity": [
+   "зроби цю функцію коротшою, вона на 200 рядків",
+   "назва змінної задовга, перейменуй",
+   "зроби summary цього лог файлу і скажи де починається помилка",
+   "скороти URL в роутері",
+   "чому довжина масиву завжди 0",
+   "додай валідацію максимальної довжини 100 символів для поля title",
+   "налаштуй мені eslint з prettier",
+   "тести йдуть дуже довго в CI, можна прискорити?"
+  ],
+  "detail": [
+   "поясни детально, крок за кроком",
+   "потрібне докладне пояснення як працює цей алгоритм",
+   "розпиши детально весь процес авторизації",
+   "поясни максимально розгорнуто чому цей запит повільний"
+  ],
+  "lift": [
+   "можеш знову відповідати детально",
+   "забудь про коротко, тепер можна розгорнуто",
+   "довгі відповіді знову ок"
+  ],
+  "standing": [
+   "відтепер завжди відповідай українською",
+   "ніколи не використовуй емодзі",
+   "завжди запускай тести після змін",
+   "з цього моменту ніколи не пуш у main напряму"
+  ],
+  "one_off": [
+   "поки що просто скажи готово",
+   "цього разу пропусти тести",
+   "тільки зараз ігноруй попередження лінтера"
+  ]
+ },
+ "zh": {
+  "brevity": [
+   "你的回答太长了",
+   "简短点",
+   "简单说，怎么修？",
+   "简要解释一下这个hook是干嘛的",
+   "直接给我命令就行，别写小作文",
+   "好了能跑了。不过你能不能简洁一点，字太多看不过来",
+   "一句话回答：能不能删掉dist目录",
+   "废话太多了，说重点",
+   "长话短说，build为什么挂了",
+   "tl;dr 一下"
+  ],
+  "not_brevity": [
+   "把这个函数写短一点，太长了",
+   "这个变量名太长了，改一下",
+   "总结一下这个日志文件，看看哪里开始报错",
+   "把路由里的URL缩短一点",
+   "为什么数组长度一直是0",
+   "给标题字段加个最大长度100的校验",
+   "帮我配一下eslint和prettier",
+   "CI上测试跑得太久了，能加速吗"
+  ],
+  "detail": [
+   "详细解释一下，一步一步来",
+   "我需要一个详细的说明，这个算法是怎么工作的",
+   "把整个登录流程讲透，别跳过任何细节",
+   "深入讲讲为什么这个查询这么慢"
+  ],
+  "lift": [
+   "现在可以回答得详细一点了",
+   "之前说的简短可以忘了，以后可以详细说",
+   "长回答又可以了"
+  ],
+  "standing": [
+   "以后都用中文回答",
+   "永远不要用emoji",
+   "每次改完代码都要跑测试",
+   "从现在开始，不要在没问我的情况下提交代码"
+  ],
+  "one_off": [
+   "现在先只回复准备好了",
+   "这次跳过测试",
+   "就这一次，忽略lint警告"
+  ]
+ },
+ "ja": {
+  "brevity": [
+   "回答長すぎる",
+   "短くお願い",
+   "要するに、どう直せばいい？",
+   "このhookが何してるか簡単に説明して",
+   "コマンドだけちょうだい、説明いらない",
+   "動いたありがとう。でももっと簡潔にしてほしい、読むの大変",
+   "一言で：distフォルダ消していい？",
+   "前置き長い、結論だけ",
+   "なんでビルド落ちてるの？手短に",
+   "3行でまとめて"
+  ],
+  "not_brevity": [
+   "この関数短くして、長すぎて読めない",
+   "変数名が長すぎるからリネームして",
+   "このログファイルを要約して、どこでエラーが始まってるか教えて",
+   "ルーターのURLを短縮して",
+   "なんで配列の長さがずっと0なの",
+   "タイトル欄に最大長100文字のバリデーション追加して",
+   "eslintとprettierの設定お願い",
+   "CIのテストが時間かかりすぎ、速くできる？"
+  ],
+  "detail": [
+   "詳しく説明して、ステップごとに",
+   "このアルゴリズムの仕組みを詳細に教えてほしい",
+   "認証フロー全体を丁寧に解説して、省略なしで",
+   "このクエリが遅い理由を掘り下げて説明して"
+  ],
+  "lift": [
+   "もう長めの回答でも大丈夫だよ",
+   "さっきの短くってやつはもういいよ、これからは詳しく書いて",
+   "詳しい説明に戻していいよ"
+  ],
+  "standing": [
+   "これからは常に日本語で答えて",
+   "絵文字は絶対使わないで",
+   "変更したら毎回テスト走らせて",
+   "今後、確認なしでコミットしないでね"
+  ],
+  "one_off": [
+   "とりあえず今は準備できたとだけ言って",
+   "今回はテストスキップで",
+   "今回だけlintの警告無視していいよ"
+  ]
+ },
+ "ko": {
+  "brevity": [
+   "답변이 너무 길어",
+   "짧게 좀",
+   "요약하면 어떻게 고쳐?",
+   "이 훅이 뭐하는지 간단히 설명해줘",
+   "명령어만 줘, 설명 필요없어",
+   "됐다 고마워. 근데 좀 더 간결하게 해줘 읽기 힘들어",
+   "짧게 답해: dist 폴더 지워도 돼?",
+   "서론이 너무 길어, 결론만",
+   "빌드 왜 깨져? 한 줄로",
+   "tl;dr 부탁"
+  ],
+  "not_brevity": [
+   "이 함수 좀 짧게 줄여줘, 너무 길어",
+   "변수명이 너무 길어서 바꿔줘",
+   "이 로그 파일 요약해서 에러 어디서 시작하는지 알려줘",
+   "라우터 URL 좀 줄여줘",
+   "배열 길이가 왜 계속 0이야",
+   "제목 필드에 최대 길이 100자 검증 추가해줘",
+   "eslint랑 prettier 설정해줘",
+   "CI 테스트가 너무 오래 걸려, 빠르게 할 수 있어?"
+  ],
+  "detail": [
+   "자세히 설명해줘, 단계별로",
+   "이 알고리즘 어떻게 동작하는지 상세하게 알려줘",
+   "인증 흐름 전체를 하나도 빠짐없이 꼼꼼하게 설명해줘",
+   "이 쿼리가 왜 느린지 깊게 파고들어서 설명해줘"
+  ],
+  "lift": [
+   "이제 다시 길게 답해도 돼",
+   "아까 짧게 하라던 거 잊어, 앞으로는 자세하게 해줘",
+   "자세한 답변 다시 괜찮아"
+  ],
+  "standing": [
+   "앞으로 항상 한국어로 답해",
+   "절대 이모지 쓰지 마",
+   "코드 바꿀 때마다 항상 테스트 돌려",
+   "이제부터 나한테 묻지 않고 커밋하지 마"
+  ],
+  "one_off": [
+   "일단 지금은 준비됐다고만 해",
+   "이번엔 테스트 건너뛰어",
+   "이번만 린트 경고 무시해"
+  ]
+ },
+ "hi": {
+  "brevity": [
+   "तुम्हारे जवाब बहुत लंबे हैं",
+   "छोटा रखो प्लीज़",
+   "short mein batao, fix kya hai?",
+   "संक्षेप में समझाओ ये hook क्या करता है",
+   "bas command de do, lamba explanation nahi chahiye",
+   "chal gaya thanks. par thoda concise raho yaar, itna padhna mushkil hai",
+   "एक लाइन में बताओ: dist फोल्डर डिलीट कर सकता हूँ?",
+   "itna lamba mat likho bhai, point pe aao",
+   "build क्यों fail हो रहा है? कम शब्दों में बताओ",
+   "tl;dr do"
+  ],
+  "not_brevity": [
+   "इस function को छोटा करो, बहुत लंबा है",
+   "variable ka naam bahut lamba hai, rename kar do",
+   "इस log file का summary बनाओ और बताओ error कहाँ से शुरू हुआ",
+   "router ke URLs short kar do",
+   "array की length हमेशा 0 क्यों आ रही है",
+   "title field में max length 100 का validation लगाओ",
+   "eslint aur prettier setup kar do",
+   "CI पे tests बहुत time ले रहे हैं, speed up हो सकता है?"
+  ],
+  "detail": [
+   "विस्तार से समझाओ, step by step",
+   "mujhe detail mein samjhao ye algorithm kaise kaam karta hai",
+   "पूरा auth flow अच्छे से detail में explain करो, कुछ skip मत करना",
+   "ye query slow kyun hai, gehrai se samjhao"
+  ],
+  "lift": [
+   "अब लंबे जवाब दे सकते हो",
+   "pehle jo short rakhne ko bola tha wo bhool jao, ab detail mein likh sakte ho",
+   "detailed जवाब फिर से ठीक हैं"
+  ],
+  "standing": [
+   "अब से हमेशा हिंदी में जवाब देना",
+   "kabhi bhi emoji use mat karna",
+   "हर change के बाद हमेशा tests चलाना",
+   "aage se bina puche commit mat karna"
+  ],
+  "one_off": [
+   "अभी के लिए बस ready बोलो",
+   "is baar tests skip kar do",
+   "सिर्फ इस बार lint warnings ignore करो"
+  ]
+ },
+ "id": {
+  "brevity": [
+   "jawabanmu kepanjangan",
+   "singkat aja ya",
+   "intinya, fix-nya apa?",
+   "jelasin singkat hook ini ngapain",
+   "kasih command-nya aja, gak usah esai",
+   "udah jalan makasih. tp bisa lebih ringkas gak sih, kebanyakan teks",
+   "jawab singkat: folder dist boleh dihapus gak?",
+   "kebanyakan basa-basi, langsung ke poin",
+   "kenapa build gagal? satu kalimat aja",
+   "tl;dr dong"
+  ],
+  "not_brevity": [
+   "bikin fungsi ini lebih pendek, kepanjangan",
+   "nama variabelnya terlalu panjang, ganti dong",
+   "rangkum file log ini dan kasih tau errornya mulai di mana",
+   "pendekin URL di router",
+   "kenapa panjang array-nya selalu 0",
+   "tambahin validasi panjang maksimal 100 karakter di field judul",
+   "setup eslint sama prettier dong",
+   "test di CI lama banget, bisa dipercepat gak?"
+  ],
+  "detail": [
+   "jelasin secara detail, step by step",
+   "aku butuh penjelasan lengkap gimana algoritma ini bekerja",
+   "jabarkan seluruh auth flow-nya secara rinci, jangan ada yang dilewat",
+   "jelasin mendalam kenapa query ini lambat"
+  ],
+  "lift": [
+   "sekarang boleh jawab panjang lagi",
+   "lupain yang tadi soal singkat, mulai sekarang boleh detail",
+   "jawaban panjang udah oke lagi"
+  ],
+  "standing": [
+   "mulai sekarang selalu jawab pakai bahasa indonesia",
+   "jangan pernah pakai emoji",
+   "selalu jalanin test setiap habis ubah kode",
+   "ke depannya jangan commit tanpa nanya aku dulu"
+  ],
+  "one_off": [
+   "untuk sekarang bilang siap aja",
+   "kali ini skip test-nya",
+   "sekali ini aja abaikan warning lint"
+  ]
+ },
+ "vi": {
+  "brevity": [
+   "câu trả lời của bạn dài quá",
+   "ngắn gọn thôi",
+   "tóm lại, fix thế nào?",
+   "giải thích ngắn gọn hook này làm gì",
+   "cho mình command thôi, khỏi giải thích dài dòng",
+   "chạy rồi cảm ơn. mà trả lời súc tích hơn được không, nhiều chữ quá đọc mệt",
+   "trả lời ngắn: xóa thư mục dist được không?",
+   "lan man quá, vào thẳng vấn đề đi",
+   "sao build lỗi? một câu thôi",
+   "tl;dr giùm"
+  ],
+  "not_brevity": [
+   "viết lại hàm này ngắn hơn, dài quá",
+   "tên biến dài quá, đổi tên đi",
+   "tóm tắt file log này và chỉ chỗ bắt đầu lỗi",
+   "rút gọn URL trong router",
+   "sao độ dài mảng luôn là 0",
+   "thêm validate độ dài tối đa 100 ký tự cho trường title",
+   "setup eslint với prettier giúp mình",
+   "test trên CI chạy lâu quá, tăng tốc được không"
+  ],
+  "detail": [
+   "giải thích chi tiết, từng bước một",
+   "mình cần giải thích kỹ thuật toán này hoạt động thế nào",
+   "phân tích toàn bộ auth flow thật chi tiết, đừng bỏ sót",
+   "giải thích sâu tại sao query này chậm"
+  ],
+  "lift": [
+   "giờ trả lời dài được rồi",
+   "quên vụ ngắn gọn lúc nãy đi, từ giờ cứ giải thích chi tiết",
+   "trả lời chi tiết lại ok rồi"
+  ],
+  "standing": [
+   "từ giờ luôn trả lời bằng tiếng việt",
+   "đừng bao giờ dùng emoji",
+   "luôn chạy test sau mỗi lần sửa code",
+   "từ nay về sau không được commit khi chưa hỏi mình"
+  ],
+  "one_off": [
+   "tạm thời chỉ cần nói sẵn sàng",
+   "lần này bỏ qua test",
+   "chỉ lần này thôi, bỏ qua warning của lint"
+  ]
+ },
+ "ar": {
+  "brevity": [
+   "ردودك طويلة جدا",
+   "باختصار لو سمحت",
+   "الخلاصة، ايش الحل؟",
+   "اشرح بإيجاز ايش يسوي هذا الـ hook",
+   "عطني الأمر بس، بدون مقالة",
+   "اشتغل شكرا. بس خلك مختصر اكثر، الكلام كثير",
+   "جواب قصير: اقدر احذف مجلد dist؟",
+   "لا تطول، ادخل في الموضوع",
+   "ليش الـ build يفشل؟ بجملة وحدة",
+   "tl;dr؟"
+  ],
+  "not_brevity": [
+   "خلي هذي الدالة أقصر، طويلة مرة",
+   "اسم المتغير طويل جدا، غيره",
+   "لخص ملف اللوق هذا وقلي وين يبدأ الخطأ",
+   "اختصر روابط الـ URL في الراوتر",
+   "ليش طول المصفوفة دايم 0",
+   "ضيف تحقق للطول الأقصى 100 حرف لحقل العنوان",
+   "جهزلي eslint مع prettier",
+   "التستات تاخذ وقت طويل في CI، نقدر نسرعها؟"
+  ],
+  "detail": [
+   "اشرح بالتفصيل، خطوة بخطوة",
+   "ابغى شرح مفصل كيف تشتغل هذي الخوارزمية",
+   "اشرح الـ auth flow كامل بالتفصيل ولا تتجاهل شي",
+   "اشرح بعمق ليش هذا الاستعلام بطيء"
+  ],
+  "lift": [
+   "الحين تقدر ترجع للردود الطويلة",
+   "انسى موضوع الاختصار، من الحين عادي تفصل",
+   "الردود المفصلة صارت تمام مرة ثانية"
+  ],
+  "standing": [
+   "من الحين دايماً رد بالعربي",
+   "لا تستخدم ايموجي أبداً",
+   "دايماً شغل التستات بعد كل تعديل",
+   "من الآن فصاعداً لا تسوي commit بدون ما تسألني"
+  ],
+  "one_off": [
+   "حالياً بس قول جاهز",
+   "هالمرة تجاهل التستات",
+   "بس هالمرة تجاهل تحذيرات الـ lint"
+  ]
+ },
+ "cs": {
+  "brevity": [
+   "tvoje odpovědi jsou moc dlouhý",
+   "stručně prosím",
+   "zkrátka, jaký je fix?",
+   "vysvětli krátce co dělá tenhle hook",
+   "dej mi jen ten příkaz, žádnej román",
+   "funguje díky. ale můžeš bejt stručnější, je to moc textu",
+   "krátká odpověď: můžu smazat složku dist?",
+   "moc keců, k věci",
+   "proč padá build? jednou větou",
+   "tl;dr pls"
+  ],
+  "not_brevity": [
+   "zkrať tuhle funkci, má 200 řádků",
+   "název proměnné je moc dlouhý, přejmenuj ho",
+   "shrň tenhle log soubor a řekni kde začíná chyba",
+   "zkrať URL v routeru",
+   "proč je délka pole vždycky 0",
+   "přidej validaci maximální délky 100 znaků pro pole title",
+   "nastav mi eslint s prettierem",
+   "testy na CI trvají strašně dlouho, dá se to zrychlit?"
+  ],
+  "detail": [
+   "vysvětli to podrobně, krok za krokem",
+   "potřebuju detailní vysvětlení jak funguje tenhle algoritmus",
+   "rozepiš podrobně celej auth flow, nic nevynechávej",
+   "vysvětli do hloubky proč je ten dotaz pomalej"
+  ],
+  "lift": [
+   "teď už můžeš zase odpovídat delší",
+   "zapomeň na to stručně, od teď klidně podrobně",
+   "dlouhý odpovědi jsou zase ok"
+  ],
+  "standing": [
+   "od teď vždycky odpovídej česky",
+   "nikdy nepoužívej emoji",
+   "po každý změně vždycky pusť testy",
+   "od teď už nikdy necommituj bez mýho souhlasu"
+  ],
+  "one_off": [
+   "zatím řekni jen připraveno",
+   "tentokrát přeskoč testy",
+   "jen teď ignoruj varování lintu"
+  ]
+ },
+ "sv": {
+  "brevity": [
+   "dina svar är alldeles för långa",
+   "håll det kort tack",
+   "kort sagt, vad är fixen?",
+   "förklara kort vad den här hooken gör",
+   "ge mig bara kommandot, ingen uppsats",
+   "funkar tack. men kan du vara mer koncis, orkar inte läsa allt",
+   "kort svar: kan jag radera dist-mappen?",
+   "för mycket text, kom till saken",
+   "varför failar bygget? i en mening",
+   "tl;dr tack"
+  ],
+  "not_brevity": [
+   "gör den här funktionen kortare, den är jättelång",
+   "variabelnamnet är för långt, döp om det",
+   "sammanfatta den här loggfilen och säg var felet börjar",
+   "korta ner URL:erna i routern",
+   "varför är längden på arrayen alltid 0",
+   "lägg till validering för maxlängd 100 tecken på titelfältet",
+   "sätt upp eslint med prettier åt mig",
+   "testerna tar evigheter på CI, går det att snabba upp?"
+  ],
+  "detail": [
+   "förklara utförligt, steg för steg",
+   "jag behöver en detaljerad förklaring av hur algoritmen funkar",
+   "gå igenom hela auth-flödet noggrant, hoppa inte över nåt",
+   "förklara på djupet varför den här queryn är långsam"
+  ],
+  "lift": [
+   "du kan ge längre svar igen nu",
+   "glöm det där med att hålla det kort, från och med nu får du gärna vara detaljerad",
+   "långa svar är ok igen"
+  ],
+  "standing": [
+   "svara alltid på svenska från och med nu",
+   "använd aldrig emojis",
+   "kör alltid testerna efter varje ändring",
+   "framöver ska du aldrig pusha till main utan att fråga"
+  ],
+  "one_off": [
+   "säg bara redo för tillfället",
+   "skippa testerna den här gången",
+   "bara den här gången, ignorera lint-varningarna"
+  ]
+ }
+}

@@ -1,0 +1,1222 @@
+{
+ "en": {
+  "brevity": [
+   "you write way too much man, cut it in half",
+   "keep it brief pls",
+   "in short, what broke in the deploy?",
+   "just give me the command, no essay",
+   "tldr? i dont need the whole history of webpack",
+   "explain briefly why the migration failed",
+   "too much text, not reading all that",
+   "fix the flaky test in cart.spec and keep the reply short, its a one line change",
+   "skip the explanation, just patch it",
+   "why is every answer a wall of text lol",
+   "one-liner answer: is Arc<Mutex<T>> overkill here or not",
+   "can u be more concise, reading this on my phone",
+   "stop over-explaining, I know what a mutex is",
+   "shorter answers plzzz",
+   "quick yes/no: does prisma generate need to run after every schema change"
+  ],
+  "not_brevity": [
+   "make this function shorter, it's like 200 lines of nested ifs",
+   "the class name UserAccountManagementServiceFactoryImpl is too long, rename it",
+   "write a brief README section on running the e2e tests",
+   "summarize this log and tell me which pod got OOMKilled",
+   "shorten the share URLs using the /s/ redirect endpoint",
+   "keep the commit message under 50 chars and imperative",
+   "the /orders response is way too long, paginate it",
+   "add a max length of 280 to the bio textarea",
+   "why is my docker image 2.3gb",
+   "can you add a dark mode toggle to the navbar"
+  ],
+  "detail": [
+   "explain in detail how the event loop handles this promise chain",
+   "walk me through it step by step? first time touching terraform",
+   "give me a thorough breakdown of why this postgres query does a seq scan",
+   "go deep on this one, I actually wanna understand how the borrow checker sees these lifetimes",
+   "explain the whole OAuth flow step-by-step, every redirect and token exchange",
+   "I need the full detailed explanation of this race condition, presenting it at the postmortem tomorrow"
+  ],
+  "lift": [
+   "ok you can go back to longer answers now",
+   "forget what i said about keeping it short, detail is fine again",
+   "nvm the brevity thing, explain as much as you want from here on",
+   "you don't need to be so terse anymore",
+   "longer replies are ok again going forward",
+   "scratch the 'be concise' rule, I actually need the context now"
+  ],
+  "standing": [
+   "never use emoji in your replies",
+   "always answer in bullet points from now on",
+   "from now on run the test suite before telling me something's done",
+   "don't ever push to main directly, open a PR",
+   "every time you touch a python file run black on it",
+   "for the rest of this session use pnpm, never npm"
+  ],
+  "one_off": [
+   "just this once skip the tests, need to hotfix prod",
+   "for now just hardcode the base url, we'll move it to env later",
+   "this time only, commit with --no-verify",
+   "for this one answer put it in a table"
+  ]
+ },
+ "tr": {
+  "brevity": [
+   "çok uzun yazıyosun ya, yarıya indir",
+   "kısaca söyle, deploy'da ne patladı?",
+   "kısa tut lütfen",
+   "sadece komutu ver, destan yazma",
+   "açıklamayı geç direkt düzelt şunu",
+   "abi bu kadar yazıyı okumam",
+   "özetle, migration neden fail oldu?",
+   "tek cümleyle: bu useEffect sonsuz döngüye giriyo mu girmiyo mu",
+   "daha kısa cevaplar lütfeeen",
+   "roman yazmışsın, bana sadece diff lazım",
+   "şu CORS hatasını kısaca açıklar mısın",
+   "uzatma, evet mi hayır mı",
+   "her cevabın bir sayfa, biraz kısa kes kardeşim",
+   "lafı dolandırma, hangi satırı değiştiriyoruz?",
+   "az laf çok kod pls"
+  ],
+  "not_brevity": [
+   "bu fonksiyonu kısalt, 200 satır if-else olmuş",
+   "class ismi çok uzun, daha mantıklı bir şey koy",
+   "README'ye docker ile nasıl ayağa kaldırılır diye kısa bir bölüm ekle",
+   "şu logu özetle, hangi pod OOM yemiş bul",
+   "paylaşım linklerindeki url'leri kısalt, bitly gibi bir şey yap",
+   "commit mesajı 50 karakteri geçmesin",
+   "kullanıcı adı alanına max uzunluk 20 koy",
+   "endpoint çok uzun bir response dönüyo, sayfalama ekle",
+   "laravel queue worker neden durup duruyo",
+   "auth.spec.ts'deki patlayan testi düzelt"
+  ],
+  "detail": [
+   "bunu detaylı anlat, event loop burda tam olarak ne yapıyo",
+   "adım adım anlatır mısın, k8s'de yeniyim",
+   "bu query neden yavaş, ayrıntılı açıkla lütfen",
+   "derinlemesine anlat, gerçekten anlamak istiyorum şu ownership olayını",
+   "auth akışını baştan sona adım adım açıkla, her redirect dahil",
+   "race condition'ı tüm detaylarıyla anlat, yarın ekibe sunum yapcam"
+  ],
+  "lift": [
+   "tamam artık uzun cevap verebilirsin",
+   "kısa tut demiştim ya, unut onu, detay verebilirsin",
+   "artık o kadar kısa yazmana gerek yok",
+   "bundan sonra uzun açıklamalar sorun değil",
+   "kısalık kuralını iptal ediyorum, bağlam lazım bana",
+   "eskisi gibi detaylı yazmaya dönebilirsin"
+  ],
+  "standing": [
+   "cevaplarında asla emoji kullanma",
+   "bundan sonra hep madde madde cevap ver",
+   "bir şey bitti demeden önce her seferinde testleri koştur",
+   "main'e asla direkt push atma",
+   "her dosya değiştirdiğinde phpstan çalıştır",
+   "bu oturum boyunca değişken isimleri hep ingilizce olsun"
+  ],
+  "one_off": [
+   "sadece bu seferlik testleri atla",
+   "şimdilik api url'ini hardcode et, sonra düzeltiriz",
+   "bu sefer imzasız commit at",
+   "sadece bu cevap için tablo kullan"
+  ]
+ },
+ "es": {
+  "brevity": [
+   "escribes demasiado tío, más corto",
+   "en resumen, qué se rompió?",
+   "sé breve porfa",
+   "dame solo el comando, sin rollo",
+   "explícame brevemente por qué falla el deploy en vercel",
+   "no voy a leer todo eso jajaja",
+   "respuestas más cortas por favor, solo necesito el diff",
+   "sáltate la explicación y arréglalo",
+   "en una línea: hay fuga de memoria o no",
+   "menos texto, más código",
+   "neta wey, cada respuesta es una biblia",
+   "corto y al grano, qué cambio en el webpack.config?",
+   "demasiado largo, no tengo tiempo pa esto",
+   "sí o no: puedo borrar la carpeta dist sin problema?",
+   "deja de explicar tanto, solo dime dónde está el bug"
+  ],
+  "not_brevity": [
+   "haz esta función más corta, tiene como 150 líneas",
+   "el nombre de la variable es larguísimo, cámbialo por algo legible",
+   "escribe una sección breve en el README sobre cómo levantar el proyecto con docker",
+   "resume este log y dime qué microservicio petó",
+   "acorta las URLs de los enlaces de invitación",
+   "que el mensaje del commit no pase de 50 caracteres",
+   "pon una longitud máxima de 500 al campo comentario",
+   "el JSON que devuelve /productos es demasiado largo, quita los campos que no se usan",
+   "por qué el contenedor de postgres se reinicia cada rato?",
+   "agrega un test para el endpoint de login"
+  ],
+  "detail": [
+   "explícame con detalle cómo funciona el middleware de express aquí",
+   "paso a paso por favor, nunca he usado terraform",
+   "quiero una explicación a fondo de por qué esto da deadlock",
+   "detállame todo el flujo de OAuth, cada redirección",
+   "explícalo bien detallado que no me entero de nada con los closures",
+   "dame una explicación exhaustiva del algoritmo de reconciliación de react"
+  ],
+  "lift": [
+   "ya puedes volver a dar respuestas largas",
+   "olvida lo de ser breve, ahora sí quiero detalle",
+   "ya no hace falta que seas tan escueto",
+   "a partir de ahora las respuestas largas están bien otra vez",
+   "cancelo lo de responder corto, explícame lo que haga falta",
+   "vale, puedes volver a extenderte"
+  ],
+  "standing": [
+   "nunca uses emojis en tus respuestas",
+   "a partir de ahora responde siempre con viñetas",
+   "siempre corre los tests antes de decirme que algo está listo",
+   "no hagas nunca push directo a main",
+   "cada vez que modifiques un archivo pásale el linter",
+   "de aquí en adelante usa yarn, no npm"
+  ],
+  "one_off": [
+   "solo por esta vez sáltate los tests",
+   "por ahora usa datos mock, luego conectamos la bd",
+   "esta vez no hagas commit, solo deja los cambios",
+   "solo para esta respuesta ponlo en una tabla"
+  ]
+ },
+ "pt": {
+  "brevity": [
+   "vc escreve demais, resume aí",
+   "resumindo, o que quebrou?",
+   "seja breve pfv",
+   "só me passa o comando, sem textão",
+   "explica rapidinho pq o build tá falhando",
+   "não vou ler tudo isso não kkkk",
+   "respostas mais curtas por favor",
+   "pula a explicação e corrige logo",
+   "numa linha: tem vazamento de memória ou não?",
+   "menos texto mais código",
+   "mano toda resposta sua é uma redação do enem",
+   "direto ao ponto: qual linha eu mudo no settings.py?",
+   "textão demais, tô sem tempo",
+   "sim ou não, posso apagar o package-lock?",
+   "para de explicar tudo, só aponta onde tá o erro"
+  ],
+  "not_brevity": [
+   "deixa essa função mais curta, tá enorme",
+   "o nome da tabela tá muito longo, renomeia na migration",
+   "escreve uma seção breve no README sobre as variáveis de ambiente",
+   "faz um resumo desse log e me diz qual pod caiu",
+   "encurta as urls dos links de convite",
+   "mantém a mensagem do commit com menos de 50 caracteres",
+   "o campo descrição aceita texto longo demais, limita a 300 caracteres",
+   "gera um resumo conciso das mudanças pro changelog",
+   "como faço pra rodar só um teste no jest?",
+   "adiciona dark mode na tela de configurações"
+  ],
+  "detail": [
+   "explica em detalhes como esse hook funciona",
+   "me explica passo a passo, nunca mexi com docker compose",
+   "quero uma explicação bem detalhada do porquê esse select tá lento",
+   "explica a fundo o fluxo de autenticação, cada etapa",
+   "detalha tudo, preciso entender de verdade o garbage collector aqui",
+   "pode explicar minuciosamente o que acontece no rebase?"
+  ],
+  "lift": [
+   "pode voltar a dar respostas longas",
+   "esquece aquilo de ser breve, agora quero detalhe",
+   "não precisa mais ser tão curto",
+   "daqui pra frente pode escrever o quanto quiser",
+   "cancela o modo resumido, preciso de contexto",
+   "beleza, pode se estender de novo nas explicações"
+  ],
+  "standing": [
+   "nunca use emoji nas respostas",
+   "de agora em diante responda sempre em tópicos",
+   "sempre roda os testes antes de dizer que terminou",
+   "jamais faça push direto na main",
+   "toda vez que mexer num arquivo roda o eslint",
+   "a partir de agora escreve os comentários do código em inglês"
+  ],
+  "one_off": [
+   "só dessa vez pula os testes",
+   "por enquanto deixa hardcoded, depois a gente arruma",
+   "dessa vez não commita, só deixa staged",
+   "só nessa resposta usa uma tabela"
+  ]
+ },
+ "fr": {
+  "brevity": [
+   "tu écris beaucoup trop, raccourcis",
+   "en bref, qu'est-ce qui a cassé ?",
+   "sois bref stp",
+   "donne moi juste la commande, pas un roman",
+   "explique rapidement pourquoi le build plante",
+   "trop de texte, j'vais pas lire tout ça",
+   "des réponses plus courtes svp",
+   "zappe l'explication et corrige",
+   "en une ligne : y a une fuite mémoire ou pas",
+   "moins de blabla, plus de code",
+   "sérieux chaque réponse c'est une dissertation de philo",
+   "va droit au but, je change quoi dans le Dockerfile ?",
+   "c'est beaucoup trop long là, j'ai pas le temps",
+   "oui ou non, je peux supprimer le dossier .next ?",
+   "arrête de tout détailler, dis juste où est le bug"
+  ],
+  "not_brevity": [
+   "rends cette fonction plus courte, elle fait 200 lignes",
+   "le nom de la classe est trop long, renomme-la",
+   "écris une brève section dans le README sur l'installation",
+   "fais un résumé de ce log et dis-moi quel service a crashé",
+   "raccourcis les URLs des liens de partage",
+   "garde le message de commit sous 50 caractères",
+   "ajoute une longueur max de 100 sur le champ titre",
+   "écris une description concise pour la PR",
+   "comment je lance un seul test avec pytest ?",
+   "migre le projet de webpack vers vite"
+  ],
+  "detail": [
+   "explique-moi en détail comment marche le middleware ici",
+   "étape par étape stp, je découvre kubernetes",
+   "j'ai besoin d'une explication approfondie de ce deadlock",
+   "détaille tout le flux OAuth, chaque redirection",
+   "explique de façon exhaustive comment fonctionne le cache ici",
+   "prends le temps de bien tout expliquer, je veux vraiment comprendre les closures"
+  ],
+  "lift": [
+   "tu peux refaire des réponses longues maintenant",
+   "oublie ce que j'ai dit sur être bref, les détails c'est ok",
+   "plus besoin d'être aussi concis",
+   "à partir de maintenant les réponses détaillées c'est bon à nouveau",
+   "j'annule la consigne « réponses courtes », j'ai besoin de contexte",
+   "ok tu peux de nouveau développer tes explications"
+  ],
+  "standing": [
+   "n'utilise jamais d'emoji dans tes réponses",
+   "à partir de maintenant réponds toujours avec des listes à puces",
+   "lance toujours les tests avant de me dire que c'est fini",
+   "ne push jamais directement sur main",
+   "chaque fois que tu modifies un fichier, passe le linter",
+   "désormais écris les messages de commit en anglais"
+  ],
+  "one_off": [
+   "juste pour cette fois, saute les tests",
+   "pour l'instant mets des données en dur, on branchera l'API plus tard",
+   "cette fois-ci ne commit pas",
+   "rien que pour cette réponse, fais un tableau"
+  ]
+ },
+ "de": {
+  "brevity": [
+   "du schreibst viel zu viel, kürzer bitte",
+   "kurz gesagt, was ist kaputt?",
+   "fass dich kurz",
+   "gib mir einfach den befehl, keinen roman",
+   "erklär kurz warum die pipeline rot ist",
+   "zu viel text, das les ich nicht",
+   "kürzere antworten bitte, ich brauch nur den diff",
+   "lass die erklärung weg und fix es einfach",
+   "in einem satz: memory leak ja oder nein",
+   "weniger gelaber mehr code",
+   "alter jede antwort ist ne doktorarbeit",
+   "komm auf den punkt, was muss ich in der nginx.conf ändern?",
+   "viiiel zu lang, hab keine zeit",
+   "ja oder nein, kann ich den node_modules ordner einfach löschen?",
+   "hör auf alles so ausführlich zu erklären, sag nur wo der fehler ist"
+  ],
+  "not_brevity": [
+   "mach diese funktion kürzer, die hat 200 zeilen",
+   "der klassenname ist zu lang, benenn den um",
+   "schreib einen kurzen abschnitt in die README wie man die tests startet",
+   "fass das log zusammen und sag mir welcher service abgestürzt ist",
+   "kürz die urls in den einladungslinks",
+   "commit message bitte unter 50 zeichen",
+   "setz eine maximale länge von 64 auf das feld username",
+   "schreib eine knappe zusammenfassung der änderungen für den changelog",
+   "wieso ist mein docker image 2gb groß",
+   "fix den fehlschlagenden test in user.test.ts"
+  ],
+  "detail": [
+   "erklär mir ausführlich wie der event loop das hier abarbeitet",
+   "schritt für schritt bitte, bin neu bei terraform",
+   "ich brauch eine detaillierte erklärung warum die query so langsam ist",
+   "erklär den kompletten auth flow im detail, jede weiterleitung",
+   "geh bitte richtig in die tiefe, ich will den borrow checker endlich verstehen",
+   "kannst du das gründlich erklären? alles, nicht nur die kurzfassung"
+  ],
+  "lift": [
+   "du kannst wieder längere antworten geben",
+   "vergiss das mit dem kurz fassen, details sind wieder ok",
+   "musst nicht mehr so knapp sein",
+   "ab jetzt sind ausführliche antworten wieder in ordnung",
+   "die kurz-regel ist aufgehoben, ich brauch jetzt kontext",
+   "ok, darfst wieder ausholen"
+  ],
+  "standing": [
+   "benutz niemals emojis in deinen antworten",
+   "ab jetzt antworte immer in stichpunkten",
+   "führ immer die tests aus bevor du sagst dass es fertig ist",
+   "push nie direkt auf main",
+   "jedes mal wenn du eine datei änderst, lass prettier drüberlaufen",
+   "ab sofort kommentare im code bitte auf englisch"
+  ],
+  "one_off": [
+   "nur dieses eine mal die tests überspringen",
+   "fürs erste einfach hardcoden, machen wir später sauber",
+   "diesmal nicht committen",
+   "nur für diese antwort bitte als tabelle"
+  ]
+ },
+ "it": {
+  "brevity": [
+   "scrivi troppo, accorcia",
+   "in breve, cosa si è rotto?",
+   "sii breve per favore",
+   "dammi solo il comando, niente poema",
+   "spiegami in breve perché fallisce la build",
+   "troppo testo, non lo leggo tutto",
+   "risposte più corte pls",
+   "salta la spiegazione e sistemalo",
+   "in una riga: c'è un memory leak o no",
+   "meno chiacchiere più codice",
+   "ma ogni risposta è un tema di maturità?",
+   "vai al sodo, cosa cambio nel docker-compose?",
+   "troppo lungooo, non ho tempo",
+   "sì o no, posso cancellare la cartella build?",
+   "smettila di spiegare tutto, dimmi solo dov'è il bug"
+  ],
+  "not_brevity": [
+   "rendi questa funzione più corta, sono 200 righe",
+   "il nome della classe è troppo lungo, rinominalo",
+   "scrivi una breve sezione nel README su come avviare il progetto",
+   "fai un riassunto di questo log e dimmi quale servizio è crashato",
+   "accorcia gli url dei link di invito",
+   "tieni il messaggio di commit sotto i 50 caratteri",
+   "metti una lunghezza massima di 255 sul campo email",
+   "scrivi una descrizione concisa per la PR",
+   "come faccio a debuggare un test jest in vscode?",
+   "aggiungi la paginazione alla lista ordini"
+  ],
+  "detail": [
+   "spiegami nel dettaglio come funziona il middleware qui",
+   "passo passo per favore, non ho mai usato kubernetes",
+   "voglio una spiegazione approfondita del perché va in deadlock",
+   "dettagliami tutto il flusso OAuth, ogni redirect",
+   "spiegalo per bene, in modo esaustivo, le closure non le capisco",
+   "puoi spiegarmi dettagliatamente cosa fa il rebase interattivo?"
+  ],
+  "lift": [
+   "puoi tornare a risposte lunghe adesso",
+   "lascia stare la cosa della brevità, ora mi servono i dettagli",
+   "non serve più che sei così sintetico",
+   "d'ora in poi le risposte lunghe vanno di nuovo bene",
+   "annullo la regola delle risposte corte",
+   "ok puoi dilungarti di nuovo"
+  ],
+  "standing": [
+   "non usare mai emoji nelle risposte",
+   "d'ora in poi rispondi sempre con elenchi puntati",
+   "lancia sempre i test prima di dirmi che hai finito",
+   "non fare mai push diretto su main",
+   "ogni volta che modifichi un file, passa il linter",
+   "da adesso in avanti usa sempre le arrow function"
+  ],
+  "one_off": [
+   "solo per questa volta salta i test",
+   "per ora metti dati finti, colleghiamo il db dopo",
+   "stavolta non fare commit",
+   "solo per questa risposta usa una tabella"
+  ]
+ },
+ "nl": {
+  "brevity": [
+   "je schrijft echt veel te veel, korter aub",
+   "kort gezegd, wat is er kapot?",
+   "hou het kort",
+   "geef me gewoon het commando, geen opstel",
+   "leg kort uit waarom de build faalt",
+   "te veel tekst, dat ga ik niet lezen",
+   "kortere antwoorden graag",
+   "sla de uitleg over en fix het",
+   "in één zin: memory leak of niet?",
+   "minder gelul, meer code",
+   "elk antwoord is een scriptie man",
+   "kom to the point, wat moet ik in de config aanpassen?",
+   "veeel te lang, geen tijd voor",
+   "ja of nee, kan ik de cache map weggooien?",
+   "stop met alles uitleggen, zeg gewoon waar de bug zit"
+  ],
+  "not_brevity": [
+   "maak deze functie korter, het zijn 200 regels",
+   "de klassenaam is te lang, hernoem hem",
+   "schrijf een korte sectie in de README over hoe je de tests draait",
+   "vat deze log samen en zeg welke service gecrasht is",
+   "verkort de urls in de deel-links",
+   "houd de commit message onder de 50 tekens",
+   "zet een maximale lengte van 50 op het veld voornaam",
+   "schrijf een beknopte samenvatting van de wijzigingen voor de changelog",
+   "waarom is mijn docker image zo groot",
+   "voeg een unit test toe voor de parser"
+  ],
+  "detail": [
+   "leg me in detail uit hoe de event loop dit afhandelt",
+   "stap voor stap graag, ik ben nieuw met kubernetes",
+   "ik wil een uitgebreide uitleg waarom deze query traag is",
+   "leg de hele auth flow uitgebreid uit, elke redirect",
+   "ga er echt diep op in, ik wil snappen hoe dit werkt",
+   "kun je grondig uitleggen wat een rebase precies doet?"
+  ],
+  "lift": [
+   "je mag weer langere antwoorden geven",
+   "vergeet dat van kort houden, details zijn weer prima",
+   "je hoeft niet meer zo beknopt te zijn",
+   "vanaf nu zijn uitgebreide antwoorden weer oké",
+   "die regel over korte antwoorden vervalt, ik heb context nodig",
+   "ok, je mag weer uitweiden"
+  ],
+  "standing": [
+   "gebruik nooit emoji in je antwoorden",
+   "vanaf nu altijd antwoorden in opsommingstekens",
+   "draai altijd de tests voordat je zegt dat het klaar is",
+   "push nooit direct naar main",
+   "elke keer als je een bestand aanpast, draai prettier",
+   "voortaan variabelenamen in het engels graag"
+  ],
+  "one_off": [
+   "alleen deze keer de tests overslaan",
+   "voor nu gewoon hardcoden, later netjes maken",
+   "deze keer niet committen",
+   "alleen voor dit antwoord een tabel graag"
+  ]
+ },
+ "pl": {
+  "brevity": [
+   "piszesz za dużo, skróć to",
+   "w skrócie, co się zepsuło?",
+   "krótko proszę",
+   "daj mi tylko komendę, bez wypracowania",
+   "wyjaśnij krótko czemu build się wywala",
+   "za dużo tekstu, nie przeczytam tego",
+   "krótsze odpowiedzi plz",
+   "pomiń wyjaśnienia i po prostu napraw",
+   "jednym zdaniem: jest wyciek pamięci czy nie",
+   "mniej gadania więcej kodu",
+   "każda odpowiedź to jakaś epopeja xd",
+   "do rzeczy, co mam zmienić w configu?",
+   "za długieee, nie mam czasu",
+   "tak czy nie, mogę usunąć folder dist?",
+   "przestań wszystko tłumaczyć, powiedz gdzie jest bug"
+  ],
+  "not_brevity": [
+   "skróć tę funkcję, ma 200 linii",
+   "nazwa klasy jest za długa, zmień ją",
+   "napisz krótką sekcję w README jak odpalić testy",
+   "podsumuj ten log i powiedz który serwis padł",
+   "skróć urle w linkach zaproszeń",
+   "commit message ma mieć poniżej 50 znaków",
+   "dodaj maksymalną długość 120 dla pola tytuł",
+   "napisz zwięzły opis do PR",
+   "jak uruchomić pojedynczy test w pytest?",
+   "dodaj obsługę błędów do fetchUser"
+  ],
+  "detail": [
+   "wyjaśnij szczegółowo jak działa ten middleware",
+   "krok po kroku proszę, pierwszy raz używam dockera",
+   "potrzebuję dokładnego wyjaśnienia czemu to zapytanie jest wolne",
+   "opisz cały flow OAuth ze szczegółami, każdy redirect",
+   "wytłumacz to dogłębnie, chcę naprawdę zrozumieć lifetimes w rust",
+   "możesz dokładnie rozpisać co się dzieje podczas rebase?"
+  ],
+  "lift": [
+   "możesz znowu pisać dłuższe odpowiedzi",
+   "zapomnij o tym, żeby było krótko, szczegóły są ok",
+   "nie musisz już być taki zwięzły",
+   "od teraz dłuższe odpowiedzi znów są w porządku",
+   "odwołuję zasadę krótkich odpowiedzi, potrzebuję kontekstu",
+   "dobra, możesz się znowu rozpisywać"
+  ],
+  "standing": [
+   "nigdy nie używaj emoji w odpowiedziach",
+   "od teraz zawsze odpowiadaj w punktach",
+   "zawsze odpalaj testy zanim powiesz że skończone",
+   "nigdy nie pushuj bezpośrednio na main",
+   "za każdym razem jak zmieniasz plik, odpal lintera",
+   "od tej pory komentarze w kodzie po angielsku"
+  ],
+  "one_off": [
+   "tylko tym razem pomiń testy",
+   "na razie zahardkoduj, później poprawimy",
+   "tym razem nie commituj",
+   "tylko w tej odpowiedzi zrób tabelkę"
+  ]
+ },
+ "ru": {
+  "brevity": [
+   "ты пишешь слишком много, короче",
+   "если коротко, что сломалось?",
+   "покороче плз",
+   "просто дай команду, без простыни текста",
+   "кратко объясни почему билд падает",
+   "слишком много букв, не буду читать",
+   "давай ответы покороче",
+   "пропусти объяснения, просто почини",
+   "одной строкой: утечка памяти есть или нет",
+   "меньше воды, больше кода",
+   "каждый ответ как диссертация блин",
+   "по существу: что поменять в nginx конфиге?",
+   "многабукаф, некогда",
+   "да или нет, можно удалить папку node_modules?",
+   "хватит всё разжёвывать, скажи где баг"
+  ],
+  "not_brevity": [
+   "сделай эту функцию короче, она на 200 строк",
+   "имя класса слишком длинное, переименуй",
+   "напиши краткий раздел в README как запускать тесты",
+   "сделай summary этого лога и скажи какой сервис упал",
+   "сократи урлы в реферальных ссылках",
+   "сообщение коммита не длиннее 50 символов",
+   "добавь ограничение длины 32 на поле логин",
+   "напиши лаконичное описание для PR",
+   "почему докер образ весит 2 гига",
+   "добавь retry в http клиент"
+  ],
+  "detail": [
+   "объясни подробно как event loop тут работает",
+   "пошагово плиз, я в кубере новичок",
+   "нужно детальное объяснение почему запрос тормозит",
+   "распиши весь OAuth флоу подробно, каждый редирект",
+   "разбери это досконально, хочу реально понять borrow checker",
+   "можешь детально объяснить что происходит при rebase?"
+  ],
+  "lift": [
+   "можешь снова отвечать развёрнуто",
+   "забудь про краткость, подробности снова ок",
+   "уже не надо так сжато",
+   "с этого момента длинные ответы снова норм",
+   "отменяю правило про короткие ответы, мне нужен контекст",
+   "ладно, можешь опять расписывать"
+  ],
+  "standing": [
+   "никогда не используй эмодзи в ответах",
+   "отныне всегда отвечай списком",
+   "всегда гоняй тесты перед тем как сказать что готово",
+   "никогда не пушь напрямую в main",
+   "каждый раз когда меняешь файл, прогоняй линтер",
+   "с этого момента пиши комменты в коде на английском"
+  ],
+  "one_off": [
+   "только в этот раз пропусти тесты",
+   "пока что захардкодь, потом поправим",
+   "в этот раз не коммить",
+   "только для этого ответа сделай таблицу"
+  ]
+ },
+ "uk": {
+  "brevity": [
+   "ти пишеш забагато, скороти",
+   "якщо коротко, що зламалось?",
+   "коротше будь ласка",
+   "просто дай команду, без простирадла тексту",
+   "коротко поясни чому білд падає",
+   "забагато тексту, не читатиму",
+   "давай коротші відповіді",
+   "пропусти пояснення, просто виправ",
+   "одним рядком: є витік пам'яті чи ні",
+   "менше води більше коду",
+   "кожна відповідь як дисертація, серйозно",
+   "по суті: що змінити в конфігу?",
+   "задовгооо, нема часу",
+   "так чи ні, можна видалити папку dist?",
+   "годі все розжовувати, скажи де баг"
+  ],
+  "not_brevity": [
+   "зроби цю функцію коротшою, там 200 рядків",
+   "назва класу задовга, перейменуй",
+   "напиши короткий розділ в README як запускати тести",
+   "зроби підсумок цього логу і скажи який сервіс впав",
+   "скороти урли в посиланнях-запрошеннях",
+   "повідомлення коміту до 50 символів",
+   "додай максимальну довжину 40 для поля імені",
+   "напиши стислий опис для PR",
+   "як запустити один тест у vitest?",
+   "додай валідацію email на формі реєстрації"
+  ],
+  "detail": [
+   "поясни детально як працює цей middleware",
+   "крок за кроком будь ласка, я новачок у docker",
+   "потрібне докладне пояснення чому запит повільний",
+   "розпиши весь OAuth флоу детально, кожен редирект",
+   "поясни це ґрунтовно, хочу справді зрозуміти замикання",
+   "можеш докладно розібрати що відбувається при rebase?"
+  ],
+  "lift": [
+   "можеш знову відповідати розгорнуто",
+   "забудь про стислість, деталі знову ок",
+   "вже не треба так коротко",
+   "відтепер довгі відповіді знову нормально",
+   "скасовую правило коротких відповідей, мені потрібен контекст",
+   "добре, можеш знову розписувати"
+  ],
+  "standing": [
+   "ніколи не використовуй емодзі у відповідях",
+   "відтепер завжди відповідай списком",
+   "завжди запускай тести перш ніж казати що готово",
+   "ніколи не пуш напряму в main",
+   "щоразу як змінюєш файл, запускай лінтер",
+   "від сьогодні коментарі в коді англійською"
+  ],
+  "one_off": [
+   "тільки цього разу пропусти тести",
+   "поки що захардкодь, потім виправимо",
+   "цього разу не коміть",
+   "тільки для цієї відповіді зроби таблицю"
+  ]
+ },
+ "zh": {
+  "brevity": [
+   "你写太多了，精简点",
+   "简单说，哪里坏了？",
+   "简短点回答",
+   "直接给我命令就行，别写小作文",
+   "简单解释下为什么build挂了",
+   "字太多了不看",
+   "回答短一点谢谢",
+   "别解释了直接改",
+   "一句话：到底有没有内存泄漏",
+   "少说废话多写代码",
+   "每次回复都像写论文一样。。",
+   "说重点，nginx配置要改哪里",
+   "太长了吧，没时间看",
+   "能不能删node_modules，是或否",
+   "别啰嗦了，告诉我bug在哪就行"
+  ],
+  "not_brevity": [
+   "把这个函数改短一点，都200行了",
+   "类名太长了，重命名一下",
+   "在README里写一个简短的章节说明怎么跑测试",
+   "总结一下这段日志，看看哪个服务挂了",
+   "把分享链接里的url缩短",
+   "commit message控制在50个字符以内",
+   "给用户名字段加个最大长度限制，32",
+   "给这个PR写个简洁的描述",
+   "为什么docker镜像有2个G",
+   "帮我把这个接口改成异步的"
+  ],
+  "detail": [
+   "详细解释一下这里event loop是怎么处理的",
+   "一步一步讲，我刚接触k8s",
+   "我需要一个详细的解释，为什么这个查询这么慢",
+   "把整个OAuth流程详细讲一遍，每次重定向都要讲",
+   "讲透一点，我想真正搞懂闭包",
+   "能不能详细说说rebase的时候到底发生了什么"
+  ],
+  "lift": [
+   "现在可以恢复长回答了",
+   "之前说的简短就算了，现在可以详细点",
+   "不用再那么简洁了",
+   "从现在开始长一点的回答没问题",
+   "取消简短回答的要求，我需要上下文",
+   "好了你可以展开说了，以后都可以"
+  ],
+  "standing": [
+   "回复里永远不要用emoji",
+   "从现在开始都用列表形式回答",
+   "每次说完成之前都先跑一遍测试",
+   "绝对不要直接push到main",
+   "每次改完文件都跑一下prettier",
+   "以后代码注释都用英文写"
+  ],
+  "one_off": [
+   "就这一次，跳过测试",
+   "暂时先写死，之后再改",
+   "这次先别commit",
+   "只有这个回答用表格"
+  ]
+ },
+ "ja": {
+  "brevity": [
+   "長すぎ、もっと短くして",
+   "要するに何が壊れたの？",
+   "簡潔にお願い",
+   "コマンドだけちょうだい、説明いらない",
+   "ビルドが落ちる理由を手短に説明して",
+   "文章多すぎて読む気しない",
+   "回答もっと短めでおねがいします",
+   "説明はいいから直して",
+   "一言で：メモリリークある？ない？",
+   "能書きはいいからコード書いて",
+   "毎回作文みたいになってるよｗ",
+   "結論だけ教えて、nginxのどこ変えればいい？",
+   "長っ、時間ないんだけど",
+   "はいかいいえで：distフォルダ消して大丈夫？",
+   "いちいち全部解説しなくていいから、バグの場所だけ"
+  ],
+  "not_brevity": [
+   "この関数短くして、200行もある",
+   "クラス名長すぎるからリネームして",
+   "READMEにテストの実行方法を簡単にまとめたセクション追加して",
+   "このログ要約して、どのサービスが落ちたか教えて",
+   "共有リンクのURLを短縮して",
+   "コミットメッセージは50文字以内で",
+   "ユーザー名フィールドに最大長20を設定して",
+   "PRの説明を簡潔に書いて",
+   "なんでdockerイメージが2GBもあるの",
+   "このコンポーネントにローディング状態追加して"
+  ],
+  "detail": [
+   "ここでイベントループがどう動いてるか詳しく説明して",
+   "ステップバイステップで教えて、k8s初心者なので",
+   "このクエリが遅い理由を詳細に解説してほしい",
+   "OAuthのフロー全体を詳しく、リダイレクト一つずつ説明して",
+   "しっかり掘り下げて説明して、クロージャをちゃんと理解したい",
+   "rebaseの時に何が起きてるのか丁寧に説明してもらえる？"
+  ],
+  "lift": [
+   "もう長めの回答に戻していいよ",
+   "さっき短くって言ったけど撤回、詳しくて大丈夫",
+   "もうそんなに簡潔にしなくていいよ",
+   "これからは長い回答でもOK",
+   "短く答えるルールは解除で、文脈がほしい",
+   "じゃあまた詳しめに書いていいよ"
+  ],
+  "standing": [
+   "返信で絵文字は絶対使わないで",
+   "これからは常に箇条書きで答えて",
+   "完了って言う前に毎回テスト回して",
+   "mainに直接pushは絶対しないで",
+   "ファイル触るたびにprettierかけて",
+   "今後コードのコメントは全部英語で"
+  ],
+  "one_off": [
+   "今回だけテストスキップでいい",
+   "とりあえず今はハードコードで、あとで直す",
+   "今回はコミットしないで",
+   "この回答だけ表にして"
+  ]
+ },
+ "ko": {
+  "brevity": [
+   "너무 길게 써, 줄여줘",
+   "간단히 말해서 뭐가 깨진거야?",
+   "짧게 답해줘",
+   "명령어만 줘, 설명 필요없어",
+   "빌드 왜 실패하는지 간단하게 설명해줘",
+   "글 너무 많아서 안 읽을래",
+   "답변 좀 더 짧게 부탁해요",
+   "설명 빼고 그냥 고쳐",
+   "한 줄로: 메모리 누수 있어 없어",
+   "말 말고 코드로",
+   "매번 논문 쓰는 것 같음 ㅋㅋ",
+   "핵심만, nginx 설정 어디 바꾸면 돼?",
+   "너무 길어ㅠ 시간 없어",
+   "예 아니오로: dist 폴더 지워도 돼?",
+   "다 설명 안해도 돼, 버그 위치만 알려줘"
+  ],
+  "not_brevity": [
+   "이 함수 좀 짧게 만들어줘, 200줄이야",
+   "클래스 이름이 너무 길어, 이름 바꿔줘",
+   "README에 테스트 실행 방법 간단한 섹션 써줘",
+   "이 로그 요약해서 어떤 서비스가 죽었는지 알려줘",
+   "공유 링크 URL 단축해줘",
+   "커밋 메시지 50자 이내로 해줘",
+   "닉네임 필드 최대 길이 16으로 제한 걸어줘",
+   "PR 설명 간결하게 작성해줘",
+   "도커 이미지가 왜 2기가나 돼?",
+   "로그인 API에 rate limit 추가해줘"
+  ],
+  "detail": [
+   "여기서 이벤트 루프가 어떻게 동작하는지 자세히 설명해줘",
+   "단계별로 알려줘, k8s 처음이라",
+   "이 쿼리가 왜 느린지 상세하게 설명해줘",
+   "OAuth 흐름 전체를 리다이렉트 하나하나 자세히 설명해줘",
+   "깊게 파고들어서 설명해줘, 클로저 제대로 이해하고 싶어",
+   "rebase 할 때 무슨 일이 일어나는지 꼼꼼하게 설명해줄래?"
+  ],
+  "lift": [
+   "이제 다시 길게 답해도 돼",
+   "아까 짧게 하라고 한 거 취소, 자세히 해도 돼",
+   "이제 그렇게 간결하게 안 해도 돼",
+   "지금부터는 긴 답변 괜찮아",
+   "짧게 답하기 규칙 해제할게, 맥락이 필요해",
+   "그래 다시 길게 풀어서 설명해도 돼"
+  ],
+  "standing": [
+   "답변에 이모지 절대 쓰지 마",
+   "앞으로 항상 글머리 기호로 답해줘",
+   "다 됐다고 하기 전에 매번 테스트 돌려",
+   "main에 직접 push 절대 하지 마",
+   "파일 수정할 때마다 prettier 돌려줘",
+   "앞으로 코드 주석은 영어로 써"
+  ],
+  "one_off": [
+   "이번만 테스트 건너뛰어",
+   "일단 지금은 하드코딩하고 나중에 고치자",
+   "이번에는 커밋하지 마",
+   "이 답변만 표로 정리해줘"
+  ]
+ },
+ "hi": {
+  "brevity": [
+   "bhai itna lamba mat likh, short me bata",
+   "संक्षेप में बताओ, क्या टूटा?",
+   "chhota rakho answer pls",
+   "बस command दे दो, निबंध मत लिखो",
+   "build fail kyu ho raha hai, short me explain karo",
+   "itna text main nahi padhunga yaar",
+   "जवाब थोड़े छोटे रखो please",
+   "explanation chhodo, seedha fix karo",
+   "ek line me: memory leak hai ya nahi",
+   "kam bolo, zyada code",
+   "har reply mein poori ramayan likh dete ho",
+   "मुद्दे की बात करो, config में क्या बदलना है?",
+   "bahut lambaaa hai, time nahi hai",
+   "haan ya na, dist folder delete kar sakta hu?",
+   "सब कुछ समझाने की ज़रूरत नहीं, बस bug कहाँ है बताओ"
+  ],
+  "not_brevity": [
+   "is function ko chhota karo, 200 lines ka hai",
+   "class ka naam bahut lamba hai, rename kar do",
+   "README में tests चलाने पर एक छोटा section लिख दो",
+   "is log ka summary do aur batao kaunsa service crash hua",
+   "share links ke URLs short kar do",
+   "commit message 50 characters se kam rakhna",
+   "username field पर max length 20 लगा दो",
+   "PR ke liye ek concise description likh do",
+   "docker image 2gb ki kyun hai",
+   "login page पर forgot password वाला flow जोड़ दो"
+  ],
+  "detail": [
+   "detail me samjhao ki event loop yahan kaise kaam karta hai",
+   "step by step batao, main k8s me naya hu",
+   "यह query slow क्यों है, विस्तार से समझाओ",
+   "poora OAuth flow detail me explain karo, har redirect",
+   "गहराई से समझाओ, मुझे closures सच में समझने हैं",
+   "rebase ke time kya hota hai, achhe se detail me bata sakte ho?"
+  ],
+  "lift": [
+   "ab tum lambe answers de sakte ho",
+   "short wali baat bhool jao, ab detail chalega",
+   "अब इतना छोटा लिखने की ज़रूरत नहीं",
+   "aage se lambe jawab theek hain",
+   "छोटे जवाब वाला rule cancel, मुझे context चाहिए",
+   "theek hai, ab phir se khul ke explain kar sakte ho"
+  ],
+  "standing": [
+   "replies me kabhi emoji use mat karna",
+   "अब से हमेशा bullet points में जवाब देना",
+   "done bolne se pehle hamesha tests chalana",
+   "main पर कभी direct push मत करना",
+   "har baar file change karo to prettier chalao",
+   "aage se code comments English me likhna"
+  ],
+  "one_off": [
+   "sirf is baar tests skip kar do",
+   "अभी के लिए hardcode कर दो, बाद में ठीक करेंगे",
+   "is baar commit mat karna",
+   "sirf is answer me table bana do"
+  ]
+ },
+ "id": {
+  "brevity": [
+   "kamu nulisnya kepanjangan, singkat aja",
+   "singkatnya, apa yang rusak?",
+   "jawab singkat aja ya",
+   "kasih command-nya aja, gak usah esai",
+   "jelasin singkat kenapa build-nya gagal",
+   "kebanyakan teks, males bacanya",
+   "jawabannya lebih pendek dong",
+   "skip penjelasannya, langsung benerin",
+   "satu kalimat aja: ada memory leak gak",
+   "kurangin ngomong, perbanyak kode",
+   "tiap jawaban kayak skripsi wkwk",
+   "to the point aja, yang diubah di config apa?",
+   "panjang bangettt, gak ada waktu",
+   "iya atau nggak, folder dist boleh dihapus?",
+   "gak usah dijelasin semua, kasih tau aja bug-nya dimana"
+  ],
+  "not_brevity": [
+   "bikin fungsi ini lebih pendek, udah 200 baris",
+   "nama class-nya kepanjangan, rename dong",
+   "tulis bagian singkat di README soal cara jalanin test",
+   "rangkum log ini terus kasih tau service mana yang crash",
+   "perpendek url di link undangan",
+   "commit message-nya di bawah 50 karakter ya",
+   "tambahin max length 30 di field nama",
+   "buatin ringkasan perubahan buat changelog",
+   "kenapa docker image-nya 2gb",
+   "tambahin fitur export ke csv di halaman laporan"
+  ],
+  "detail": [
+   "jelasin secara detail gimana event loop nanganin ini",
+   "step by step ya, aku baru di k8s",
+   "aku butuh penjelasan rinci kenapa query ini lambat",
+   "jelasin seluruh flow OAuth secara detail, tiap redirect",
+   "bahas mendalam dong, pengen bener-bener paham closure",
+   "bisa jelasin lengkap apa yang terjadi pas rebase?"
+  ],
+  "lift": [
+   "sekarang boleh jawab panjang lagi",
+   "lupain yang tadi soal singkat, detail gpp sekarang",
+   "gak perlu ringkas banget lagi",
+   "mulai sekarang jawaban panjang oke lagi",
+   "aturan jawab singkat dibatalin ya, aku butuh konteks",
+   "oke, boleh jelasin panjang lebar lagi"
+  ],
+  "standing": [
+   "jangan pernah pake emoji di jawaban",
+   "mulai sekarang selalu jawab pake bullet point",
+   "selalu jalanin test sebelum bilang udah selesai",
+   "jangan pernah push langsung ke main",
+   "setiap kali ubah file, jalanin prettier",
+   "ke depannya komentar kode pake bahasa inggris"
+  ],
+  "one_off": [
+   "kali ini aja skip test-nya",
+   "untuk sekarang hardcode dulu, nanti dibenerin",
+   "kali ini jangan commit",
+   "khusus jawaban ini pake tabel"
+  ]
+ },
+ "vi": {
+  "brevity": [
+   "bạn viết dài quá, rút gọn lại đi",
+   "nói ngắn gọn, cái gì bị lỗi?",
+   "trả lời ngắn thôi nha",
+   "đưa mình lệnh thôi, khỏi viết văn",
+   "giải thích ngắn gọn sao build bị fail",
+   "nhiều chữ quá, không đọc nổi",
+   "trả lời ngắn hơn đi ạ",
+   "bỏ qua phần giải thích, sửa luôn đi",
+   "một câu thôi: có memory leak hay không",
+   "ít nói nhiều code",
+   "lần nào trả lời cũng như viết luận văn vậy",
+   "vào thẳng vấn đề, sửa chỗ nào trong config?",
+   "dài quáaa, không có thời gian",
+   "có hay không: xóa thư mục dist được không?",
+   "đừng giải thích hết, chỉ cần nói bug ở đâu"
+  ],
+  "not_brevity": [
+   "làm hàm này ngắn lại, 200 dòng rồi",
+   "tên class dài quá, đổi tên đi",
+   "viết một phần ngắn trong README về cách chạy test",
+   "tóm tắt log này và cho biết service nào bị crash",
+   "rút ngắn url trong link mời",
+   "commit message dưới 50 ký tự nhé",
+   "thêm giới hạn độ dài tối đa 50 cho trường họ tên",
+   "viết mô tả ngắn gọn cho PR",
+   "sao docker image nặng 2gb vậy",
+   "thêm chức năng upload avatar"
+  ],
+  "detail": [
+   "giải thích chi tiết event loop xử lý chỗ này thế nào",
+   "hướng dẫn từng bước nhé, mình mới học k8s",
+   "mình cần giải thích kỹ tại sao query này chậm",
+   "giải thích toàn bộ flow OAuth chi tiết, từng redirect",
+   "phân tích sâu giúp mình, muốn hiểu thật sự về closure",
+   "giải thích cặn kẽ chuyện gì xảy ra khi rebase được không?"
+  ],
+  "lift": [
+   "giờ trả lời dài lại được rồi",
+   "quên vụ ngắn gọn đi, giờ chi tiết cũng được",
+   "không cần ngắn vậy nữa đâu",
+   "từ giờ trả lời dài cũng ok",
+   "hủy quy tắc trả lời ngắn nhé, mình cần ngữ cảnh",
+   "ok, giờ giải thích dài dòng lại cũng được"
+  ],
+  "standing": [
+   "đừng bao giờ dùng emoji trong câu trả lời",
+   "từ giờ luôn trả lời dạng gạch đầu dòng",
+   "luôn chạy test trước khi báo xong",
+   "không bao giờ push thẳng lên main",
+   "mỗi lần sửa file thì chạy prettier",
+   "từ nay comment trong code viết bằng tiếng anh"
+  ],
+  "one_off": [
+   "chỉ lần này thôi, bỏ qua test",
+   "tạm thời hardcode đi, sau sửa",
+   "lần này đừng commit",
+   "riêng câu trả lời này làm dạng bảng"
+  ]
+ },
+ "ar": {
+  "brevity": [
+   "أنت تكتب كثير جدا، اختصر",
+   "باختصار، إيش اللي خرب؟",
+   "خليك مختصر لو سمحت",
+   "بس اعطني الأمر، بدون مقالة",
+   "اشرح باختصار ليش البناء يفشل",
+   "نص كثير، مش رح اقرأ كل هذا",
+   "ردود أقصر من فضلك",
+   "تجاوز الشرح وصلحها على طول",
+   "بسطر واحد: في memory leak ولا لا",
+   "كلام أقل كود أكثر",
+   "كل رد كأنه رسالة ماجستير والله",
+   "ادخل في الموضوع، ايش أغير في الconfig؟",
+   "طويييل، ما عندي وقت",
+   "نعم أو لا: أقدر أحذف مجلد dist؟",
+   "لا تشرح كل شي، قلي وين البق بس"
+  ],
+  "not_brevity": [
+   "خلي هذي الدالة أقصر، فيها 200 سطر",
+   "اسم الكلاس طويل جدا، غيره",
+   "اكتب قسم مختصر في الREADME عن طريقة تشغيل التستات",
+   "لخص هذا اللوق وقلي أي سيرفس طاح",
+   "قصر الروابط في لينكات الدعوة",
+   "خلي رسالة الكوميت أقل من 50 حرف",
+   "حط حد أقصى للطول 30 على حقل الاسم",
+   "اكتب وصف موجز للـ PR",
+   "ليش صورة الدوكر حجمها 2 جيجا",
+   "أضف تسجيل دخول بجوجل"
+  ],
+  "detail": [
+   "اشرح بالتفصيل كيف الevent loop يتعامل مع هذا",
+   "خطوة بخطوة لو سمحت، أنا جديد على k8s",
+   "أحتاج شرح مفصل ليش هذا الاستعلام بطيء",
+   "اشرح كامل flow الـ OAuth بالتفصيل، كل redirect",
+   "اشرح بعمق، أبي أفهم الclosures صح",
+   "ممكن تشرح بشكل دقيق إيش يصير وقت الrebase؟"
+  ],
+  "lift": [
+   "تقدر ترجع للردود الطويلة الحين",
+   "انسى موضوع الاختصار، التفاصيل عادي الحين",
+   "ما يحتاج تختصر كذا بعد الآن",
+   "من الآن الردود الطويلة تمام مرة ثانية",
+   "ألغيت قاعدة الردود القصيرة، أحتاج سياق",
+   "خلاص، تقدر تطوّل في الشرح من جديد"
+  ],
+  "standing": [
+   "لا تستخدم إيموجي أبدا في ردودك",
+   "من الآن دايما جاوب بنقاط",
+   "دايما شغل التستات قبل ما تقول خلصت",
+   "لا تسوي push مباشرة على main أبدا",
+   "كل مرة تعدل ملف شغل prettier",
+   "من اليوم ورايح التعليقات في الكود بالانجليزي"
+  ],
+  "one_off": [
+   "هالمرة بس تجاوز التستات",
+   "حاليا خليها hardcoded، بعدين نصلحها",
+   "هالمرة لا تسوي commit",
+   "بس في هذا الرد استخدم جدول"
+  ]
+ },
+ "cs": {
+  "brevity": [
+   "píšeš strašně moc, zkrať to",
+   "ve zkratce, co se rozbilo?",
+   "stručně prosím",
+   "dej mi jen ten příkaz, žádnou slohovku",
+   "vysvětli stručně proč padá build",
+   "moc textu, to číst nebudu",
+   "kratší odpovědi pls",
+   "přeskoč vysvětlování a oprav to",
+   "jednou větou: je tam memory leak nebo ne",
+   "míň keců víc kódu",
+   "každá odpověď je jak diplomka",
+   "k věci, co mám změnit v configu?",
+   "moc dlouhýýý, nemám čas",
+   "ano nebo ne, můžu smazat složku dist?",
+   "přestaň všechno vysvětlovat, řekni kde je bug"
+  ],
+  "not_brevity": [
+   "zkrať tuhle funkci, má 200 řádků",
+   "název třídy je moc dlouhý, přejmenuj ji",
+   "napiš krátkou sekci do README jak spustit testy",
+   "shrň tenhle log a řekni který service spadl",
+   "zkrať urlka v pozvánkových odkazech",
+   "commit message pod 50 znaků",
+   "přidej maximální délku 80 na pole předmět",
+   "napiš stručný popis do PR",
+   "proč má docker image 2 giga",
+   "přidej do API endpoint na mazání účtu"
+  ],
+  "detail": [
+   "vysvětli mi podrobně jak tady funguje event loop",
+   "krok za krokem prosím, s k8s začínám",
+   "potřebuju detailní vysvětlení proč je ten dotaz pomalý",
+   "popiš celý OAuth flow podrobně, každý redirect",
+   "rozeber to do hloubky, chci fakt pochopit closures",
+   "můžeš důkladně vysvětlit co se děje při rebase?"
+  ],
+  "lift": [
+   "můžeš zase psát delší odpovědi",
+   "zapomeň na to stručně, detaily jsou zase ok",
+   "už nemusíš být tak strohý",
+   "od teď jsou dlouhé odpovědi zase v pohodě",
+   "ruším pravidlo krátkých odpovědí, potřebuju kontext",
+   "dobře, můžeš se zase rozepsat"
+  ],
+  "standing": [
+   "nikdy nepoužívej emoji v odpovědích",
+   "od teď vždycky odpovídej v odrážkách",
+   "vždycky spusť testy než řekneš že je hotovo",
+   "nikdy nepushuj přímo do main",
+   "pokaždé když upravíš soubor, pusť linter",
+   "odteď komentáře v kódu anglicky"
+  ],
+  "one_off": [
+   "jen tentokrát přeskoč testy",
+   "zatím to zahardcoduj, pak to opravíme",
+   "tentokrát necommituj",
+   "jen pro tuhle odpověď udělej tabulku"
+  ]
+ },
+ "sv": {
+  "brevity": [
+   "du skriver alldeles för mycket, korta ner",
+   "kort sagt, vad är trasigt?",
+   "håll det kort tack",
+   "ge mig bara kommandot, ingen uppsats",
+   "förklara kort varför bygget failar",
+   "för mycket text, orkar inte läsa",
+   "kortare svar tack",
+   "skippa förklaringen och fixa det bara",
+   "en mening: minnesläcka eller inte",
+   "mindre snack mer kod",
+   "varje svar är ju en hel roman",
+   "rakt på sak, vad ändrar jag i configen?",
+   "alldeles för långt, har inte tid",
+   "ja eller nej, kan jag radera dist-mappen?",
+   "sluta förklara allt, säg bara var buggen är"
+  ],
+  "not_brevity": [
+   "gör den här funktionen kortare, den är 200 rader",
+   "klassnamnet är för långt, döp om det",
+   "skriv ett kort avsnitt i README om hur man kör testerna",
+   "sammanfatta den här loggen och säg vilken tjänst som kraschade",
+   "korta ner urlerna i inbjudningslänkarna",
+   "håll commit-meddelandet under 50 tecken",
+   "lägg till maxlängd 60 på fältet efternamn",
+   "skriv en koncis beskrivning till PR:en",
+   "varför är docker-imagen 2gb",
+   "lägg till en health check endpoint"
+  ],
+  "detail": [
+   "förklara i detalj hur event loopen hanterar det här",
+   "steg för steg tack, är ny på k8s",
+   "jag behöver en detaljerad förklaring till varför queryn är långsam",
+   "gå igenom hela OAuth-flödet utförligt, varje redirect",
+   "gå på djupet, jag vill verkligen fatta closures",
+   "kan du noggrant förklara vad som händer vid en rebase?"
+  ],
+  "lift": [
+   "du kan köra längre svar igen nu",
+   "glöm det där med att hålla det kort, detaljer är ok igen",
+   "du behöver inte vara så kortfattad längre",
+   "från och med nu är långa svar okej igen",
+   "jag tar bort regeln om korta svar, behöver kontext",
+   "okej, du får breda ut dig igen"
+  ],
+  "standing": [
+   "använd aldrig emojis i dina svar",
+   "från och med nu svara alltid i punktlistor",
+   "kör alltid testerna innan du säger att det är klart",
+   "pusha aldrig direkt till main",
+   "varje gång du ändrar en fil, kör prettier",
+   "hädanefter kodkommentarer på engelska"
+  ],
+  "one_off": [
+   "bara den här gången, skippa testerna",
+   "för tillfället hårdkoda det, vi fixar sen",
+   "den här gången ska du inte committa",
+   "bara i det här svaret, gör en tabell"
+  ]
+ }
+}

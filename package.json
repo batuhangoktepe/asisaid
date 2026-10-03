@@ -1,9 +1,14 @@
 {
   "name": "asisaid",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Stop repeating yourself to your coding agent.",
   "license": "MIT",
   "private": true,
-  "scripts": { "test": "node test/run.js" },
-  "engines": { "node": ">=18" }
+  "scripts": {
+    "test": "node test/run.js",
+    "eval": "node eval/run.js heldout.json && node eval/run.js dev.json"
+  },
+  "engines": {
+    "node": ">=18"
+  }
 }

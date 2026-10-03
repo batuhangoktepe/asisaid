@@ -33,44 +33,8 @@ const RULES = {
   ],
 };
 
-const STANDING = {
-  en: [/\b(?:always|never|from now on|every (?:time|response|reply|answer|message)|each (?:time|response|reply|answer))\b/i],
-  tr: [/(?<!\p{L})(?:asla|hiçbir zaman|hiç bir zaman|her zaman|hep|bundan sonra|her (?:cevap|cevab|yanıt|mesaj|seferinde)\p{L}*)(?!\p{L})/iu],
-};
-
-const BREVITY = {
-  en: [/(?:\b(?:too long|too verbose|too wordy|too much text|wall of text|in short|in brief|briefly|be (?:brief|concise|short)|keep it (?:short|brief|concise|tight)|(?:shorter|brief|concise|short) (?:answers?|repl(?:y|ies)|responses?|version)|(?:answer|reply|respond|write|explain) (?:briefly|shortly|concisely)|in (?:one|a few|two|three|1|2|3) (?:lines?|sentences?|words)|no fluff|less text|fewer words|(?:get|straight) to the point|just the answer|shorter please|stop rambling)\b|\btl;?dr\b)/i],
-  tr: [/(?<!\p{L})(?:çok uzun|uzun yazma|uzun yazıyorsun|çok yazıyorsun|uzatma|lafı uzatma|kısa yaz|kısa tut|kısa kes|kısa ve öz|kısa ve net|kısaca|kısacası|daha kısa (?:yaz|anlat|tut|cevap|ol)|(?:cevab|yanıt|mesaj|yazı)\p{L}* kısalt|tek cümle|bir cümle|birkaç cümle|birkaç kelime|net söyle|direkt söyle|özet geç)\p{L}*/iu],
-};
-
-const ONE_OFF = {
-  en: [/\b(?:for now|right now|this time)\b/i],
-  tr: [/(?<!\p{L})(?:şimdilik|şimdi|bu sefer|bu seferlik)(?!\p{L})/iu],
-};
-
-const DETAIL = {
-  en: [/\b(?:in (?:full )?detail|detailed|elaborate|explain (?:fully|thoroughly|everything)|full (?:explanation|details|report|version)|comprehensive|thorough|long version|deep dive|go deep|walk me through|everything about)\b/i],
-  tr: [/(?<!\p{L})(?:detaylı|detaylıca|detayları|ayrıntılı|ayrıntılıca|ayrıntıları|uzun uzun|uzunca|tüm detay|bütün detay|derinlemesine|her şeyi anlat|tam rapor|açıklamalı)\p{L}*/iu],
-};
-
-const LIFT = {
-  en: [/\b(?:you can (?:be|write) (?:more )?(?:detailed|verbose|longer)|longer (?:answers|replies) are (?:fine|ok)|no need to be (?:brief|short)|stop being (?:brief|short))\b/i],
-  tr: [/(?<!\p{L})(?:uzun yazabilirsin|detaylı yazabilirsin|uzun yazman sorun değil|kısa yazmana gerek yok|kısa yazma artık|artık uzun yaz)\p{L}*/iu],
-};
-
-const LANGUAGE_HINTS = {
-  Turkish: /[çğışöüÇĞİŞÖÜ]|(?<!\p{L})(?:ve|bir|bu|şu|için|ne|neden|nasıl|mı|mi|mu|değil|yap|olsun|var|yok|ama|gibi)(?!\p{L})/iu,
-};
-
-const NO_EMOJI = /emoji/i;
-
 const all = (byLanguage) => Object.values(byLanguage).flat();
 const RULE_PATTERNS = all(RULES);
-const STANDING_PATTERNS = all(STANDING);
-const BREVITY_PATTERNS = all(BREVITY);
-const ONE_OFF_PATTERNS = all(ONE_OFF);
-const DETAIL_PATTERNS = all(DETAIL);
-const LIFT_PATTERNS = all(LIFT);
 
 function normalize(text) {
   return text.replace(/(\p{L})\1{2,}/gu, '$1');
@@ -87,32 +51,185 @@ function ownWords(text) {
 
 function sentences(text) {
   return text
-    .split(/(?<=[.!?])\s+/)
+    .split(/(?<=[.!?])\s+|(?<=[。！？])/)
     .map((s) => s.replace(/^[-*>\d.)\s"'“”‘’]+/, '').replace(/["'“”‘’\s]+$/, '').trim())
     .filter(Boolean);
 }
 
-function isBrevity(rule) {
-  return matches(BREVITY_PATTERNS, rule);
+const LEXICON = require('./lexicon');
+const LANGS = Object.keys(LEXICON);
+const CATEGORIES = ['brevity', 'long', 'too', 'short', 'reply', 'answer', 'code', 'detail', 'permission', 'lift', 'standing', 'oneOff', 'negation', 'emoji', 'much', 'skip', 'explain', 'longform', 'text', 'cancel', 'noNeed', 'again', 'briefNoun', 'strong'];
+const RULE_WORD = /(?:^|\s)(?:rule|regla|regle|regel|regola|regul|kural|aturan|pravidl|quy tac|mode|modo|modus|consigne|zasad|demistim|dedim|i said|told you|j ai dit|dije|disse|gesagt|detto|gezegd|mowilem)|правил|режим|говорил|казав|规则|規則|要求|模式|ルール|モード|言った|규칙|모드|했던|قاعد|قلت/;
+const FOLD_MAP = { ı: 'i', ł: 'l', ß: 'ss', đ: 'd', ø: 'o', æ: 'ae', œ: 'oe', أ: 'ا', إ: 'ا', آ: 'ا', ى: 'ي', ة: 'ه', ؤ: 'و', ئ: 'ي' };
+const CJK = /[぀-ヿ㐀-鿿가-힯ᄀ-ᇿ豈-﫿]/;
+const TOKEN_SPLIT = /[^\p{L}\p{M}\p{N}]+/u;
+
+function fold(text) {
+  return String(text || '')
+    .toLowerCase()
+    .replace(/[ıłßđøæœأإآىةؤئ]/g, (c) => FOLD_MAP[c])
+    .normalize('NFKD')
+    .replace(/[̀-ًͯ-ٰٟ]/g, '')
+    .normalize('NFKC')
+    .replace(/\btl\s*[;:]?\s*dr\b/g, ' tldr ')
+    .replace(/['’`]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
-function isStanding(sentence) {
-  if (isBrevity(sentence)) return true;
-  if (sentence.endsWith('?') || matches(ONE_OFF_PATTERNS, sentence)) return false;
-  return matches(STANDING_PATTERNS, sentence) || NO_EMOJI.test(sentence);
+function compileTerm(term) {
+  const suffix = term.startsWith('*');
+  const stem = term.endsWith('*');
+  const text = fold(term.replace(/^\*|\*$/g, ''));
+  const words = text.split(TOKEN_SPLIT).filter(Boolean);
+  return { cjk: CJK.test(text), stem, suffix, text, phrase: words.join(' '), single: words.length === 1, ascii: /^[a-z0-9 ]{2,}$/.test(text) };
+}
+
+const TERMS = Object.fromEntries(LANGS.map((lang) => [lang, Object.fromEntries(
+  CATEGORIES.map((cat) => [cat, (LEXICON[lang][cat] || []).map(compileTerm)]),
+)]));
+const STOPWORDS = Object.fromEntries(LANGS.filter((l) => LEXICON[l].stop).map((l) => [l, new Set(LEXICON[l].stop.map(fold))]));
+
+function prepare(text) {
+  const base = fold(text);
+  const variants = new Set([base, base.replace(/(\p{L})\1{2,}/gu, '$1'), base.replace(/(\p{L})\1{2,}/gu, '$1$1')]);
+  return [...variants].map((raw) => {
+    const tokens = raw.split(TOKEN_SPLIT).filter(Boolean);
+    return { raw, tokens, spaced: ` ${tokens.join(' ')} `, cjk: CJK.test(raw) };
+  });
+}
+
+function nearlyEqual(a, b) {
+  if (a === b) return true;
+  if (Math.abs(a.length - b.length) > 1 || a[0] !== b[0]) return false;
+  let i = 0;
+  let j = 0;
+  let edits = 0;
+  while (i < a.length && j < b.length) {
+    if (a[i] === b[j]) { i++; j++; continue; }
+    if (++edits > 1) return false;
+    if (a.length > b.length) i++;
+    else if (a.length < b.length) j++;
+    else { i++; j++; }
+  }
+  return edits + (a.length - i) + (b.length - j) <= 1;
+}
+
+function hit(term, form) {
+  if (!term.phrase) return false;
+  if (term.cjk) return form.raw.includes(term.text);
+  if (form.cjk && term.ascii && form.raw.includes(term.phrase)) return true;
+  if (term.suffix) return term.single && form.tokens.some((w) => w.length > term.phrase.length && w.endsWith(term.phrase));
+  if (term.stem) {
+    if (term.single) return form.tokens.some((w) => w.startsWith(term.phrase));
+    return form.spaced.includes(` ${term.phrase}`);
+  }
+  if (form.spaced.includes(` ${term.phrase} `)) return true;
+  return term.single && term.phrase.length >= 6
+    && form.tokens.some((w) => w.length >= 5 && w.slice(-2) === term.phrase.slice(-2) && nearlyEqual(w, term.phrase));
+}
+
+function langScores(text) {
+  const s = String(text || '');
+  if (/[\uac00-\ud7af\u1100-\u11ff]/.test(s)) return [['ko', 10]];
+  if (/[\u3040-\u30ff]/.test(s)) return [['ja', 10]];
+  if (/[\u4e00-\u9fff]/.test(s)) return [['zh', 10]];
+  if (/[\u0600-\u06ff]/.test(s)) return [['ar', 10]];
+  if (/[\u0900-\u097f]/.test(s)) return [['hi', 10]];
+  if (/[\u0400-\u04ff]/.test(s)) return [[/[іїєґ]/i.test(s) ? 'uk' : 'ru', 10]];
+  const tokens = fold(s).split(TOKEN_SPLIT).filter(Boolean);
+  const lower = s.toLowerCase();
+  return Object.entries(STOPWORDS).map(([lang, set]) => {
+    let score = tokens.filter((t) => set.has(t)).length;
+    if (LEXICON[lang].chars && LEXICON[lang].chars.test(lower)) score += 2;
+    return [lang, score];
+  }).filter(([, score]) => score > 0).sort((a, b) => b[1] - a[1]);
+}
+
+function detectLang(text) {
+  const [best, second] = langScores(text);
+  if (!best || best[1] < 2 || (second && second[1] === best[1])) return null;
+  return best[0] === 'hi' && best[1] < 10 ? 'hi-latn' : best[0];
+}
+
+function languageLabel(code) {
+  if (!code) return null;
+  if (code === 'hi-latn') return 'Hinglish (Hindi in Latin script)';
+  return LEXICON[code] ? LEXICON[code].name : null;
+}
+
+function classify(text, sessionLang) {
+  const forms = prepare(text);
+  const detected = detectLang(text);
+  const base = (code) => (code === 'hi-latn' ? 'hi' : code);
+  const guesses = langScores(text).slice(0, 3).map(([l]) => l);
+  const cyrillicPair = (l) => (l === 'ru' ? ['ru', 'uk'] : l === 'uk' ? ['uk', 'ru'] : [l]);
+  const langs = [...new Set([detected, ...guesses, sessionLang, 'en'].map(base).flatMap(cyrillicPair).filter((l) => l && TERMS[l]))];
+  const wide = detected ? langs : LANGS;
+  const has = (lang, cat) => TERMS[lang][cat].some((t) => forms.some((f) => hit(t, f)));
+  const anyOf = (cat, list) => list.some((l) => has(l, cat));
+  const inLang = (l, ...cats) => cats.every((c) => (Array.isArray(c) ? c.some((x) => has(l, x)) : has(l, c)));
+
+  const artifact = anyOf('code', wide);
+  const answer = anyOf('answer', wide);
+  const negation = anyOf('negation', wide);
+  const strong = anyOf('strong', LANGS);
+  const explicitBrevity = strong || anyOf('brevity', LANGS);
+  const skipExplain = wide.some((l) => inLang(l, 'skip', 'explain'));
+  const combo = skipExplain || wide.some((l) => inLang(l, 'long', 'too')
+    || inLang(l, 'short', 'reply')
+    || inLang(l, 'too', 'much', 'reply')
+    || inLang(l, 'text', ['too', 'much'])
+    || (has(l, 'longform') && (answer || negation || has(l, 'skip') || has(l, 'standing'))));
+  let brevity = strong || ((explicitBrevity || combo) && (!artifact || answer));
+
+  const brief = anyOf('briefNoun', wide) || anyOf('short', wide);
+  const ruleWord = forms.some((f) => RULE_WORD.test(f.raw));
+  const cancel = anyOf('cancel', wide);
+  const longish = anyOf('detail', wide) || anyOf('long', wide);
+  const standingWords = anyOf('standing', wide);
+  const lift = !artifact && (anyOf('lift', LANGS)
+    || (anyOf('noNeed', wide) && brief)
+    || (cancel && (ruleWord || (brief && (!explicitBrevity || anyOf('detail', wide)))))
+    || (anyOf('permission', wide) && longish && (anyOf('again', wide) || standingWords)));
+  if (lift) brevity = false;
+
+  let detail = anyOf('detail', wide);
+  if (detail && brevity) {
+    if (explicitBrevity || skipExplain) detail = false;
+    else brevity = false;
+  }
+  const oneOff = anyOf('oneOff', wide);
+  return {
+    lang: detected,
+    brevity,
+    detail: detail && !lift,
+    lift,
+    standing: standingWords && !oneOff,
+    oneOff,
+    emojiRule: anyOf('emoji', wide) && (standingWords || negation),
+  };
+}
+
+function isBrevity(rule) {
+  return classify(rule).brevity;
+}
+
+function isStanding(sentence, sessionLang) {
+  const c = classify(sentence, sessionLang);
+  if (c.brevity) return true;
+  if (/[?？]$/.test(sentence) || c.oneOff) return false;
+  return c.standing || c.emojiRule;
 }
 
 function detectLanguage(text) {
-  const words = (String(text).match(/\p{L}+/gu) || []).length;
-  if (words < 3) return null;
-  for (const [name, re] of Object.entries(LANGUAGE_HINTS)) if (re.test(text)) return name;
-  return /^[\x00-\x7F]*$/.test(text) ? 'English' : null;
+  return languageLabel(detectLang(text));
 }
 
-function standingRules(text) {
+function standingRules(text, sessionLang) {
   const out = [];
   for (const line of ownWords(text).split('\n')) {
-    for (const s of sentences(line)) if (s.length >= 6 && isStanding(s)) out.push(clip(s, 160));
+    for (const s of sentences(line)) if (s.length >= 2 && isStanding(s, sessionLang)) out.push(clip(s, 160));
   }
   return out;
 }
@@ -123,7 +240,7 @@ function extractRules(turns) {
     for (const line of ownWords(user).split('\n')) {
       for (const s of sentences(line)) {
         if (s.endsWith('?') || s.length < 6) continue;
-        if (!matches(RULE_PATTERNS, s)) continue;
+        if (!matches(RULE_PATTERNS, s) && !isStanding(s)) continue;
         const key = s.toLowerCase().replace(/\s+/g, ' ');
         seen.delete(key);
         seen.set(key, clip(s, 300));
@@ -162,9 +279,11 @@ function parseAnswers(text) {
 
 function cleanUserText(t) {
   if (!t || t.includes(OPEN)) return '';
-  if (/^\s*Caveat: The messages below were generated/.test(t)) return '';
+  if (/^\s*Caveat: The messages below were generated/.test(t) || /NOT USER INPUT|^\s*\[Subagent hand-back\]/.test(t)) return '';
   t = t
-    .replace(/<system-reminder>[\s\S]*?<\/system-reminder>/g, '')
+    .replace(/<system-reminder[^>]*>[\s\S]*?<\/system-reminder[^>]*>/g, '')
+    .replace(/<task-notification>[\s\S]*?<\/task-notification>/g, '')
+    .replace(/<agent-message[^>]*>[\s\S]*?<\/agent-message>/g, '')
     .replace(/<local-command-(?:stdout|stderr)>[\s\S]*?<\/local-command-(?:stdout|stderr)>/g, '')
     .replace(/<command-message>[\s\S]*?<\/command-message>/g, '');
   const cmd = t.match(/<command-name>([\s\S]*?)<\/command-name>/);
@@ -417,7 +536,7 @@ function violation(rules, reply, { detailAsked = false, lang = null } = {}) {
       fix: `Rewrite your last reply in ${lang || "the user's language"}, in at most ${Math.round(BRIEF_WORDS * 0.6)} words of prose: only the result, what the user needs to decide or do, and blockers. Keep any code, commands, error messages and questions for the user unchanged; do not redo any work.`,
     };
   }
-  const noEmoji = newestFirst.find((r) => NO_EMOJI.test(r));
+  const noEmoji = newestFirst.find((r) => classify(r).emojiRule);
   if (noEmoji && /\p{Extended_Pictographic}/u.test(text)) {
     return { rule: noEmoji, why: 'it contains emoji', fix: 'Repeat your last reply without any emoji.' };
   }
@@ -456,15 +575,16 @@ function restore(agent) {
 }
 
 function seedState(input, agent) {
-  const state = { rules: [], turn: 0, blockedTurn: -1, detailTurn: -1, lang: null };
+  const state = { rules: [], turn: 0, blockedTurn: -1, detailTurn: -1, lang: null, langCode: null };
   let turns = [];
   try {
     if (agent === 'codex') turns = readLog(input.session_id).turns;
     else if (input.transcript_path) turns = parseTranscript(input.transcript_path).turns;
   } catch {}
   for (const t of turns) {
-    addRules(state, standingRules(t.user));
-    state.lang = detectLanguage(ownWords(t.user)) || state.lang;
+    const code = detectLang(ownWords(t.user));
+    if (code) { state.langCode = code; state.lang = languageLabel(code); }
+    addRules(state, standingRules(t.user, state.langCode));
   }
   return state;
 }
@@ -475,12 +595,13 @@ function prompt(agent) {
   const state = loadState(input.session_id) || seedState(input, agent);
   if (agent === 'codex') appendLog(input.session_id, 'user', input.prompt);
   const text = ownWords(cleanUserText(input.prompt || ''));
-  if (matches(LIFT_PATTERNS, text)) state.rules = state.rules.filter((r) => !isBrevity(r));
-  else addRules(state, standingRules(text));
+  const c = text ? classify(text, state.langCode) : {};
+  if (c.lang) { state.langCode = c.lang; state.lang = languageLabel(c.lang); }
+  if (c.lift) state.rules = state.rules.filter((r) => !isBrevity(r));
+  else if (text) addRules(state, standingRules(text, state.langCode));
   state.turn += 1;
-  const detailAsked = matches(DETAIL_PATTERNS, text);
+  const detailAsked = Boolean(c.detail);
   if (detailAsked) state.detailTurn = state.turn;
-  state.lang = detectLanguage(text) || state.lang;
   saveState(input.session_id, state);
 
   const context = [built && built.note, reminder(state, detailAsked)].filter(Boolean).join('\n\n');
@@ -594,4 +715,4 @@ function main() {
 
 if (require.main === module) main();
 
-module.exports = { parseTranscript, readLog, buildNote, buildFromTurns, cleanUserText, extractRules, standingRules, violation, summaryLine, detectLanguage, reminder };
+module.exports = { parseTranscript, readLog, buildNote, buildFromTurns, cleanUserText, extractRules, standingRules, violation, summaryLine, detectLanguage, reminder, classify };

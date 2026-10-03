@@ -17,12 +17,12 @@ asisaid keeps your feedback in force for the whole session, for Claude Code and 
 
 ## Short mode
 
-The feedback people repeat most is "too long". Once you ask for brevity in any form ("too long", "in short", "tl;dr", "be concise", "get to the point"...), asisaid switches the session to short mode:
+The feedback people repeat most is "too long". Once you ask for brevity in any form, including the implicit ones ("way too much text", "skip the explanation", "every answer is an essay", "less talk, more code", "yes or no:"), asisaid switches the session to short mode:
 
 - Every reply comes in your language, with only what matters: the result, what you need to decide or do, and blockers.
 - Code, commands, error messages and questions for you are never cut. Code blocks don't count toward the limit.
 - Ask for detail in a message ("explain in detail", "walk me through") and that reply can be long.
-- Say "you can be more detailed now" and short mode is off.
+- Say "you can be more detailed now" or "forget the brevity thing" and short mode is off.
 
 ## Install
 
@@ -68,7 +68,25 @@ In Claude Code, `/asisaid` shows the rules currently in force and what would com
 | "Why is it still broken?" | Ignored, a question |
 | Pasted logs or chats | Ignored, not your words |
 
-Supported languages: English, Turkish.
+Works in 20 languages: English, Spanish, Portuguese, French, German, Italian, Dutch, Polish, Russian, Ukrainian, Chinese, Japanese, Korean, Hindi (and Hinglish), Indonesian, Vietnamese, Arabic, Czech, Swedish and Turkish. Detection is concept-based, not keyword lists: "too + long", "skip + explanation", "every answer + essay", typo-tolerant, and it ignores requests about code or documents ("make this function shorter", "write a brief README section").
+
+## Accuracy
+
+Measured on a blind set of 640 developer messages in 20 languages, written without access to the detection code (`npm run eval`):
+
+| | |
+|---|---|
+| Brevity requests caught | 86% |
+| Code/content requests correctly ignored | 99% |
+| Detail requests recognized | 96% |
+| "Longer is fine again" recognized | 93% |
+| Standing rules ("always", "never", "from now on") | 96% |
+| One-off instructions correctly ignored | 100% |
+
+And in 30 live sessions (English, Turkish, Spanish, German, Japanese × Haiku, Sonnet, Opus), after the user said "too long" once:
+
+- Follow-up answers were **34% shorter** overall: 50% with Sonnet, 39% with Haiku, 5% with Opus, which already follows that feedback well on its own.
+- Every reply stayed in the user's language, every code request still returned complete code, and "explain in detail" still got a long answer.
 
 ## How it works
 
@@ -95,7 +113,7 @@ Everything stays on your machine, in the plugin's own data directory. Nothing is
 ## Limitations
 
 - The check runs when the reply is finished, so the long reply is already on screen; the corrected one follows right after.
-- Rules are detected with patterns, not a model. Some phrasings will be missed.
+- Rules are detected without a model, so some phrasings will be missed (see Accuracy). Languages outside the 20 still get short mode, but rule detection there is weaker.
 - Only length and emoji are checked automatically. Other rules are reminded every turn.
 
 ## Development
