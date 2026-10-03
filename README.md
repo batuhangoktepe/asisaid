@@ -106,7 +106,7 @@ Everything stays on your machine, in the plugin's own data directory. Nothing is
 | Variable | Default | |
 |---|---|---|
 | `ASISAID_BRIEF_WORDS` | `120` | Word limit once you've asked for short replies |
-| `ASISAID_MAX_TOKENS` | `2000` | Budget for the note restored after compaction |
+| `ASISAID_NOTE_SIZE` | `2000` | Size of the note restored after compaction, in tokens |
 
 ## Limitations
 

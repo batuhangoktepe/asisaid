@@ -5,10 +5,10 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-const MAX_TOKENS = parseInt(process.env.ASISAID_MAX_TOKENS || '', 10) || 2000;
+const MAX_TOKENS = parseInt(process.env.ASISAID_NOTE_SIZE || '', 10) || 2000;
 const BRIEF_WORDS = parseInt(process.env.ASISAID_BRIEF_WORDS || '', 10) || 120;
-const CHARS_PER_TOKEN = 3.5;
-const BUDGET = Math.floor(MAX_TOKENS * CHARS_PER_TOKEN);
+const CHARS_PER_UNIT = 3.5;
+const BUDGET = Math.floor(MAX_TOKENS * CHARS_PER_UNIT);
 const TAIL_TURNS = 3;
 const MAX_RULES = 25;
 const MAX_ACTIVE = 6;
@@ -62,7 +62,7 @@ const CATEGORIES = ['brevity', 'long', 'too', 'short', 'reply', 'answer', 'code'
 const RULE_WORD = /(?:^|\s)(?:rule|regla|regle|regel|regola|regul|kural|aturan|pravidl|quy tac|mode|modo|modus|consigne|zasad|demistim|dedim|i said|told you|j ai dit|dije|disse|gesagt|detto|gezegd|mowilem)|правил|режим|говорил|казав|规则|規則|要求|模式|ルール|モード|言った|규칙|모드|했던|قاعد|قلت/;
 const FOLD_MAP = { ı: 'i', ł: 'l', ß: 'ss', đ: 'd', ø: 'o', æ: 'ae', œ: 'oe', أ: 'ا', إ: 'ا', آ: 'ا', ى: 'ي', ة: 'ه', ؤ: 'و', ئ: 'ي' };
 const CJK = /[぀-ヿ㐀-鿿가-힯ᄀ-ᇿ豈-﫿]/;
-const TOKEN_SPLIT = /[^\p{L}\p{M}\p{N}]+/u;
+const WORD_SPLIT = /[^\p{L}\p{M}\p{N}]+/u;
 
 function fold(text) {
   return String(text || '')
@@ -81,7 +81,7 @@ function compileTerm(term) {
   const suffix = term.startsWith('*');
   const stem = term.endsWith('*');
   const text = fold(term.replace(/^\*|\*$/g, ''));
-  const words = text.split(TOKEN_SPLIT).filter(Boolean);
+  const words = text.split(WORD_SPLIT).filter(Boolean);
   return { cjk: CJK.test(text), stem, suffix, text, phrase: words.join(' '), single: words.length === 1, ascii: /^[a-z0-9 ]{2,}$/.test(text) };
 }
 
@@ -94,7 +94,7 @@ function prepare(text) {
   const base = fold(text);
   const variants = new Set([base, base.replace(/(\p{L})\1{2,}/gu, '$1'), base.replace(/(\p{L})\1{2,}/gu, '$1$1')]);
   return [...variants].map((raw) => {
-    const tokens = raw.split(TOKEN_SPLIT).filter(Boolean);
+    const tokens = raw.split(WORD_SPLIT).filter(Boolean);
     return { raw, tokens, spaced: ` ${tokens.join(' ')} `, cjk: CJK.test(raw) };
   });
 }
@@ -137,7 +137,7 @@ function langScores(text) {
   if (/[\u0600-\u06ff]/.test(s)) return [['ar', 10]];
   if (/[\u0900-\u097f]/.test(s)) return [['hi', 10]];
   if (/[\u0400-\u04ff]/.test(s)) return [[/[іїєґ]/i.test(s) ? 'uk' : 'ru', 10]];
-  const tokens = fold(s).split(TOKEN_SPLIT).filter(Boolean);
+  const tokens = fold(s).split(WORD_SPLIT).filter(Boolean);
   const lower = s.toLowerCase();
   return Object.entries(STOPWORDS).map(([lang, set]) => {
     let score = tokens.filter((t) => set.has(t)).length;
@@ -412,7 +412,7 @@ function buildFromTurns(t, { userTail = true } = {}) {
     turns: tail.length,
     rules: rules.length,
     decisions: decisions.length,
-    tokens: Math.round(note.length / CHARS_PER_TOKEN),
+    tokens: Math.round(note.length / CHARS_PER_UNIT),
     compactions: t.compactions,
   };
   return { note, stats, rules, decisions, tail };
