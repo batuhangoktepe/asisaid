@@ -656,59 +656,14 @@ function lastAssistantText(file) {
   return parts.join('\n');
 }
 
-function claudeDir() {
-  return process.env.CLAUDE_CONFIG_DIR || path.join(os.homedir(), '.claude');
-}
-
-function safeReaddir(dir) {
-  try { return fs.readdirSync(dir); } catch { return []; }
-}
-
-function findTranscript(sessionId, cwd) {
-  const projects = path.join(claudeDir(), 'projects');
-  if (sessionId && /^[A-Za-z0-9-]+$/.test(sessionId)) {
-    for (const dir of safeReaddir(projects)) {
-      const f = path.join(projects, dir, `${sessionId}.jsonl`);
-      if (fs.existsSync(f)) return f;
-    }
-  }
-  const dir = path.join(projects, cwd.replace(/[^A-Za-z0-9]/g, '-'));
-  const newest = safeReaddir(dir)
-    .filter((f) => f.endsWith('.jsonl'))
-    .map((f) => ({ f: path.join(dir, f), m: fs.statSync(path.join(dir, f)).mtimeMs }))
-    .sort((a, b) => b.m - a.m)[0];
-  return newest ? newest.f : null;
-}
-
-function peek(sessionId) {
-  const file = findTranscript(sessionId, process.cwd());
-  if (!file) {
-    console.log('asisaid: no transcript found for this session yet.');
-    return;
-  }
-  const id = path.basename(file, '.jsonl');
-  const state = loadState(id) || { rules: [] };
-  const built = buildNote(file);
-  const out = [];
-  out.push(state.rules.length
-    ? `Standing rules (reminded every turn, checked on every reply):\n${state.rules.slice(-MAX_ACTIVE).map((r) => `  - ${quote(r)}`).join('\n')}`
-    : 'No standing rules yet.');
-  if (built) {
-    const s = built.stats;
-    out.push('', `After the next compaction asisaid would restore ~${s.tokens} tokens: ${plural(s.rules, 'rule')}, ${plural(s.decisions, 'decision')}, the last ${plural(s.turns, 'turn')}.`);
-  }
-  console.log(out.join('\n'));
-}
-
 function main() {
   const [cmd, arg] = process.argv.slice(2);
-  const commands = { precompact, restore, prompt, stop, peek };
+  const commands = { precompact, restore, prompt, stop };
   try {
     if (commands[cmd]) commands[cmd](arg);
-    else console.log('usage: asisaid.js precompact|restore|prompt|stop [codex] | peek [session-id]');
+    else console.log('usage: asisaid.js precompact|restore|prompt|stop [codex]');
   } catch (err) {
     logError(err);
-    if (cmd === 'peek') console.log(`asisaid: could not read this session (${err.message}).`);
   }
   process.exitCode = 0;
 }

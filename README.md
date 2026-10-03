@@ -54,8 +54,6 @@ An instruction-only skill for Cursor, Gemini CLI, Copilot and other agents that 
 
 Nothing to do. Work as usual.
 
-In Claude Code, `/asisaid` shows the rules currently in force and what would come back after a compaction.
-
 ## What counts as a rule
 
 | You write | asisaid |
