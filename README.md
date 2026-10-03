@@ -101,8 +101,13 @@ Everything stays on your machine, in the plugin's own data directory. Nothing is
 ## Development
 
 ```
+git clone https://github.com/batuhangoktepe/asisaid
+cd asisaid
 npm test
+claude --plugin-dir ./plugin
 ```
+
+No dependencies to install. `npm test` runs the hook tests, and `--plugin-dir` loads the plugin into a Claude Code session without installing it.
 
 ## License
 
