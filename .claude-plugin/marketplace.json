@@ -1,0 +1,12 @@
+{
+  "name": "asisaid",
+  "owner": { "name": "batuhangoktepe" },
+  "metadata": { "description": "Stop repeating yourself to your coding agent." },
+  "plugins": [
+    {
+      "name": "asisaid",
+      "source": "./plugin",
+      "description": "Keeps your feedback in force all session: reminds the agent of your standing rules, sends back replies that break them, and restores your own words after compaction."
+    }
+  ]
+}

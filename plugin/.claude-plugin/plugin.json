@@ -1,0 +1,10 @@
+{
+  "name": "asisaid",
+  "version": "0.1.0",
+  "description": "Stop repeating yourself to your coding agent. Keeps your feedback in force all session and restores your own words after compaction.",
+  "author": { "name": "batuhangoktepe" },
+  "homepage": "https://github.com/batuhangoktepe/asisaid",
+  "repository": "https://github.com/batuhangoktepe/asisaid",
+  "license": "MIT",
+  "keywords": ["feedback", "rules", "compaction", "context", "hooks"]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "asisaid",
+  "version": "0.1.0",
+  "description": "Stop repeating yourself to your coding agent.",
+  "license": "MIT",
+  "private": true,
+  "scripts": { "test": "node test/run.js" },
+  "engines": { "node": ">=18" }
+}

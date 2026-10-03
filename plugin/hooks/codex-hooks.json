@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      { "hooks": [{ "type": "command", "command": "node \"$PLUGIN_ROOT/scripts/asisaid.js\" prompt codex", "timeout": 10 }] }
+    ],
+    "Stop": [
+      { "hooks": [{ "type": "command", "command": "node \"$PLUGIN_ROOT/scripts/asisaid.js\" stop codex", "timeout": 10 }] }
+    ],
+    "PreCompact": [
+      { "hooks": [{ "type": "command", "command": "node \"$PLUGIN_ROOT/scripts/asisaid.js\" precompact codex", "timeout": 30 }] }
+    ],
+    "SessionStart": [
+      { "matcher": "compact", "hooks": [{ "type": "command", "command": "node \"$PLUGIN_ROOT/scripts/asisaid.js\" restore codex", "timeout": 30 }] }
+    ]
+  }
+}
