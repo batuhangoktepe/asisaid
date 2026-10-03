@@ -111,4 +111,4 @@ No dependencies to install. `npm test` runs the hook tests, and `--plugin-dir` l
 
 ## License
 
-MIT
+[MIT](LICENSE)
