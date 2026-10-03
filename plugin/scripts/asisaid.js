@@ -5,10 +5,10 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-const MAX_TOKENS = parseInt(process.env.ASISAID_NOTE_SIZE || '', 10) || 2000;
+const NOTE_SIZE = parseInt(process.env.ASISAID_NOTE_SIZE || '', 10) || 2000;
 const BRIEF_WORDS = parseInt(process.env.ASISAID_BRIEF_WORDS || '', 10) || 120;
 const CHARS_PER_UNIT = 3.5;
-const BUDGET = Math.floor(MAX_TOKENS * CHARS_PER_UNIT);
+const BUDGET = Math.floor(NOTE_SIZE * CHARS_PER_UNIT);
 const TAIL_TURNS = 3;
 const MAX_RULES = 25;
 const MAX_ACTIVE = 6;
