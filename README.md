@@ -99,7 +99,7 @@ No network calls, no extra model calls, no dependencies. Requires Node.js 18+.
 
 ## Privacy
 
-Everything stays on your machine, in the plugin's own data directory. Nothing is sent anywhere.
+Everything stays on your machine, in the plugin's own data directory. Nothing is sent anywhere. See [PRIVACY.md](PRIVACY.md).
 
 ## Configuration
 
