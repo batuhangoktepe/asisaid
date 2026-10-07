@@ -58,7 +58,7 @@ function sentences(text) {
 
 const LEXICON = require('./lexicon');
 const LANGS = Object.keys(LEXICON);
-const CATEGORIES = ['brevity', 'long', 'too', 'short', 'reply', 'answer', 'code', 'detail', 'permission', 'lift', 'standing', 'oneOff', 'negation', 'emoji', 'much', 'skip', 'explain', 'longform', 'text', 'cancel', 'noNeed', 'again', 'briefNoun', 'strong'];
+const CATEGORIES = ['brevity', 'long', 'too', 'short', 'reply', 'answer', 'code', 'detail', 'permission', 'lift', 'standing', 'oneOff', 'negation', 'emoji', 'much', 'skip', 'explain', 'longform', 'text', 'cancel', 'noNeed', 'again', 'briefNoun', 'strong', 'missing'];
 const RULE_WORD = /(?:^|\s)(?:rule|regla|regle|regel|regola|regul|kural|aturan|pravidl|quy tac|mode|modo|modus|consigne|zasad|demistim|dedim|i said|told you|j ai dit|dije|disse|gesagt|detto|gezegd|mowilem)|правил|режим|говорил|казав|规则|規則|要求|模式|ルール|モード|言った|규칙|모드|했던|قاعد|قلت/;
 const FOLD_MAP = { ı: 'i', ł: 'l', ß: 'ss', đ: 'd', ø: 'o', æ: 'ae', œ: 'oe', أ: 'ا', إ: 'ا', آ: 'ا', ى: 'ي', ة: 'ه', ؤ: 'و', ئ: 'ي' };
 const CJK = /[぀-ヿ㐀-鿿가-힯ᄀ-ᇿ豈-﫿]/;
@@ -194,7 +194,7 @@ function classify(text, sessionLang) {
     || (anyOf('permission', wide) && longish && (anyOf('again', wide) || standingWords)));
   if (lift) brevity = false;
 
-  let detail = anyOf('detail', wide);
+  let detail = anyOf('detail', wide) && !anyOf('missing', wide);
   if (detail && brevity) {
     if (explicitBrevity || skipExplain) detail = false;
     else brevity = false;
@@ -519,12 +519,17 @@ function reminder(state, detailAsked) {
   if (brief && detailAsked) {
     lines.push(`The user asked for detail in this message, so this reply may be longer. Reply in ${languageName(state)}.`);
   } else if (brief) {
-    lines.push(`The user wants short replies. Reply in ${languageName(state)} with only what matters: the result, what they need to decide or do, and blockers. A few sentences, no tables, recaps, long lists or source lists unless asked. Never drop code, commands, error messages or questions the user must answer.`);
+    lines.push(`The user wants short replies. Reply in ${languageName(state)}. Put the answer in the first line, then at most 5 short bullets or sentences, under ${BRIEF_WORDS} words of prose. Keep every specific the user needs: file paths, names, commands, numbers, error messages, decisions, risks and questions for them. Cut explanations, background, repetition and recaps instead. Code blocks do not count toward the limit and are never cut.`);
   }
   return lines.join('\n');
 }
 
-function violation(rules, reply, { detailAsked = false, lang = null } = {}) {
+function shortForm(lang, hidden) {
+  const seen = hidden ? 'The user only saw the start of your last reply on screen. ' : '';
+  return `${seen}Write it again in ${lang || "the user's language"}: the answer in the first line, then at most 5 bullets, under ${BRIEF_WORDS} words of prose. Keep every specific from your last reply: file paths, names, commands, numbers, error messages, decisions, risks and questions for the user. Drop explanations and repetition, keep code blocks unchanged, and do not redo any work.`;
+}
+
+function violation(rules, reply, { detailAsked = false, lang = null, hidden = false } = {}) {
   const text = String(reply || '').replace(/```[\s\S]*?```/g, ' ');
   const words = (text.match(/\S+/g) || []).length;
   const newestFirst = rules.slice().reverse();
@@ -533,12 +538,15 @@ function violation(rules, reply, { detailAsked = false, lang = null } = {}) {
     return {
       rule: brief,
       why: `${words} words`,
-      fix: `Rewrite your last reply in ${lang || "the user's language"}, in at most ${Math.round(BRIEF_WORDS * 0.6)} words of prose: only the result, what the user needs to decide or do, and blockers. Keep any code, commands, error messages and questions for the user unchanged; do not redo any work.`,
+      fix: shortForm(lang, hidden),
     };
   }
   const noEmoji = newestFirst.find((r) => classify(r).emojiRule);
   if (noEmoji && /\p{Extended_Pictographic}/u.test(text)) {
     return { rule: noEmoji, why: 'it contains emoji', fix: 'Repeat your last reply without any emoji.' };
+  }
+  if (hidden) {
+    return { rule: (newestFirst.find(isBrevity) || 'short replies'), why: 'cut short on screen', fix: shortForm(lang, true) };
   }
   return null;
 }
@@ -602,6 +610,8 @@ function prompt(agent) {
   state.turn += 1;
   const detailAsked = Boolean(c.detail);
   if (detailAsked) state.detailTurn = state.turn;
+  state.short = !detailAsked && state.rules.some(isBrevity);
+  state.display = null;
   saveState(input.session_id, state);
 
   const context = [built && built.note, reminder(state, detailAsked)].filter(Boolean).join('\n\n');
@@ -617,7 +627,8 @@ function stop(agent) {
   const state = loadState(input.session_id);
   if (!state || state.blockedTurn === state.turn) return;
   const reply = input.last_assistant_message != null ? input.last_assistant_message : lastAssistantText(input.transcript_path);
-  const v = violation(state.rules, reply, { detailAsked: state.detailTurn === state.turn, lang: state.lang });
+  const hidden = Boolean(state.display && state.display.turn === state.turn && state.display.hidden);
+  const v = violation(state.rules, reply, { detailAsked: state.detailTurn === state.turn, lang: state.lang, hidden });
   if (!v) return;
   state.blockedTurn = state.turn;
   saveState(input.session_id, state);

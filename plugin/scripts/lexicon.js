@@ -28,6 +28,7 @@ module.exports = {
     briefNoun: ['brevity', 'brief', 'concise', 'short answers', 'short', 'the rule', 'terse', 'brevity thing'],
     answer: ['answer*', 'reply', 'replies', 'your response*', 'your message*', 'your explanation*', 'you write', 'you re writing', 'your text'],
     strong: ['less talk more code', 'less talking more code', 'yes or no', 'yes/no', 'quick yes', 'not gonna read', 'not going to read', 'wont read all', 'not reading all', 'in one line', 'in one sentence', 'one sentence answer', 'tldr', 'straight to the point', 'get to the point', 'to the point'],
+    missing: ['misses', 'missed', 'missing', 'lost', 'loses', 'losing', 'drops', 'dropped', 'leaves out', 'left out', 'skips', 'skipped'],
   },
   tr: {
     name: 'Turkish',
@@ -57,6 +58,7 @@ module.exports = {
     briefNoun: ['kisa', 'kisalik', 'kisa tut', 'kisa yaz', 'kural'],
     answer: ['cevap*', 'cevab*', 'yanit*'],
     strong: ['az laf cok kod', 'roman yazmis*', 'destan yazmis*', 'az laf', 'lafi dolandirma', 'laf dolandirma', 'lafi uzatma', 'evet hayir', 'evet mi hayir mi', 'tek cumleyle', 'tek satirda', 'okumam', 'okumayacagim'],
+    missing: ['kacir*', 'eksik*', 'atliyor*', 'atlamis*', 'kayb*', 'kaybol*', 'unutuyor*'],
   },
   es: {
     name: 'Spanish',
@@ -86,6 +88,7 @@ module.exports = {
     briefNoun: ['breve', 'brevedad', 'corto', 'corta', 'conciso', 'concisa', 'regla'],
     answer: ['respuesta*'],
     strong: ['menos texto mas codigo', 'menos charla mas codigo', 'menos rollo mas codigo', 'si o no', 'no voy a leer', 'en una linea', 'en una frase', 'al grano'],
+    missing: ['falta*', 'pierde*', 'omite*', 'se salta'],
   },
   pt: {
     name: 'Portuguese',
@@ -115,6 +118,7 @@ module.exports = {
     briefNoun: ['breve', 'curto', 'curta', 'conciso', 'concisa', 'resumido', 'regra'],
     answer: ['resposta*'],
     strong: ['menos texto mais codigo', 'menos papo mais codigo', 'sim ou nao', 'nao vou ler', 'numa linha', 'em uma linha', 'numa frase', 'direto ao ponto'],
+    missing: ['falta*', 'perde*', 'omite*', 'pula*'],
   },
   fr: {
     name: 'French',
@@ -144,6 +148,7 @@ module.exports = {
     briefNoun: ['bref', 'breve', 'court', 'courte', 'concis', 'concise', 'regle'],
     answer: ['reponse*'],
     strong: ['moins de blabla plus de code', 'moins de texte plus de code', 'oui ou non', 'vais pas lire', 'en une ligne', 'en une phrase', 'droit au but'],
+    missing: ['manque*', 'perd*', 'oublie*', 'omet*'],
   },
   de: {
     name: 'German',
@@ -173,6 +178,7 @@ module.exports = {
     briefNoun: ['kurz', 'kurze', 'knapp', 'kurzfassen', 'kurz fassen', 'regel'],
     answer: ['antwort*'],
     strong: ['weniger gelaber mehr code', 'weniger text mehr code', 'ja oder nein', 'lese ich nicht', 'in einem satz', 'in einer zeile', 'auf den punkt'],
+    missing: ['fehl*', 'verlier*', 'vergisst', 'lasst weg', 'lässt weg'],
   },
   it: {
     name: 'Italian',
@@ -201,6 +207,7 @@ module.exports = {
     briefNoun: ['breve', 'brevita', 'corto', 'corta', 'conciso', 'concisa', 'regola'],
     answer: ['rispost*'],
     strong: ['meno chiacchiere piu codice', 'meno testo piu codice', 'si o no', 'non lo leggo', 'in una riga', 'in una frase', 'al sodo'],
+    missing: ['manca', 'mancano', 'perde', 'perdi', 'dimentichi', 'dimentica'],
   },
   nl: {
     name: 'Dutch',
@@ -229,6 +236,7 @@ module.exports = {
     briefNoun: ['kort', 'korte', 'beknopt', 'bondig', 'regel'],
     answer: ['antwoord*'],
     strong: ['minder gelul meer code', 'minder tekst meer code', 'ja of nee', 'ga ik niet lezen', 'in een zin', 'in een regel', 'to the point'],
+    missing: ['mist', 'missen', 'ontbreekt', 'ontbreken', 'vergeet', 'laat weg'],
   },
   pl: {
     name: 'Polish',
@@ -258,6 +266,7 @@ module.exports = {
     briefNoun: ['krotko', 'krotkie', 'zwiezle', 'zwiezly', 'regul*'],
     answer: ['odpowied*'],
     strong: ['mniej gadania wiecej kodu', 'mniej tekstu wiecej kodu', 'tak czy nie', 'nie przeczytam', 'jednym zdaniem', 'w jednym zdaniu', 'w jednej linii', 'do rzeczy'],
+    missing: ['brakuje', 'gubi*', 'pomija*'],
   },
   ru: {
     name: 'Russian',
@@ -286,6 +295,7 @@ module.exports = {
     briefNoun: ['краткост*', 'коротк*', 'лаконичн*', 'правил*'],
     answer: ['ответ*'],
     strong: ['меньше воды больше кода', 'меньше текста больше кода', 'да или нет', 'не буду читать', 'одной строкой', 'одним предложением', 'по делу'],
+    missing: ['теря*', 'пропуска*', 'упуска*', 'не хватает'],
   },
   uk: {
     name: 'Ukrainian',
@@ -314,6 +324,7 @@ module.exports = {
     briefNoun: ['стислість', 'стисло', 'коротк*', 'лаконічн*', 'правил*'],
     answer: ['відповід*'],
     strong: ['менше води більше коду', 'менше тексту більше коду', 'так чи ні', 'не буду читати', 'одним рядком', 'одним реченням', 'по суті'],
+    missing: ['губ*', 'пропуска*', 'бракує'],
   },
   zh: {
     name: 'Chinese',
@@ -341,6 +352,7 @@ module.exports = {
     briefNoun: ['简洁', '簡潔', '简短', '簡短', '短', '规则', '規則'],
     answer: ['回答', '回复', '回覆', '答案'],
     strong: ['少说废话多写代码', '少说话多写代码', '是或否', '是还是否', '一句话说', '字太多', '不看'],
+    missing: ['漏', '丢', '缺少', '遗漏'],
   },
   ja: {
     name: 'Japanese',
@@ -368,6 +380,7 @@ module.exports = {
     briefNoun: ['簡潔', '短く', '短め', '手短', 'ルール'],
     answer: ['回答', '返事', '返答', '答え'],
     strong: ['能書きはいいからコード', '説明はいいからコード', 'はいかいいえ', '一言で', '一行で', '読む気しない'],
+    missing: ['抜け', '漏れ', '落ち'],
   },
   ko: {
     name: 'Korean',
@@ -395,6 +408,7 @@ module.exports = {
     briefNoun: ['간결', '짧게', '짧은', '규칙'],
     answer: ['답변', '대답'],
     strong: ['말 말고 코드', '설명 말고 코드', '예 아니오', '네 아니오', '한 줄로', '한줄로', '안 읽'],
+    missing: ['빠뜨', '놓치', '빠져'],
   },
   hi: {
     name: 'Hindi',
@@ -423,6 +437,7 @@ module.exports = {
     briefNoun: ['short', 'chhota', 'chota', 'छोटा', 'संक्षिप्त', 'rule'],
     answer: ['jawab', 'जवाब', 'answer', 'reply'],
     strong: ['kam bolo zyada code', 'kam bolo', 'haan ya na', 'haan ya nahi', 'ek line me', 'ek line mein', 'nahi padhunga', 'हां या ना', 'हाँ या ना'],
+    missing: ['chhoot', 'chhut', 'miss', 'छूट'],
   },
   id: {
     name: 'Indonesian',
@@ -451,6 +466,7 @@ module.exports = {
     briefNoun: ['singkat', 'ringkas', 'pendek', 'aturan'],
     answer: ['jawab*', 'balasan'],
     strong: ['kurangin ngomong perbanyak kode', 'kurangi ngomong', 'iya atau nggak', 'iya atau tidak', 'ya atau tidak', 'satu kalimat', 'satu baris', 'males baca'],
+    missing: ['kelewat*', 'hilang', 'ketinggalan'],
   },
   vi: {
     name: 'Vietnamese',
@@ -480,6 +496,7 @@ module.exports = {
     briefNoun: ['ngan', 'ngan gon', 'quy tac'],
     answer: ['tra loi'],
     strong: ['it noi nhieu code', 'it noi', 'co hay khong', 'mot cau', 'mot dong', 'khong doc noi'],
+    missing: ['bo sot', 'thieu'],
   },
   ar: {
     name: 'Arabic',
@@ -508,6 +525,7 @@ module.exports = {
     stop: ['في', 'من', 'على', 'الى', 'عن', 'هذا', 'هذه', 'ولا', 'بس', 'يا', 'انا', 'انت', 'ليش', 'وين', 'كيف', 'شو', 'ايش', 'والله'],
     answer: ['جواب', 'اجابه', 'الاجابه', 'رد', 'ردود', 'ردك'],
     strong: ['كلام اقل كود اكثر', 'كلام اقل', 'نعم او لا', 'بسطر واحد', 'في سطر واحد', 'بجمله واحده'],
+    missing: ['ينسى', 'يفوت', 'ناقص'],
   },
   cs: {
     name: 'Czech',
@@ -537,6 +555,7 @@ module.exports = {
     briefNoun: ['strucny', 'strucne', 'kratce', 'kratky', 'strohy', 'pravidlo'],
     answer: ['odpoved*'],
     strong: ['min kecu vic kodu', 'ano nebo ne', 'jednou vetou', 'na jeden radek', 'k veci'],
+    missing: ['chybi', 'vynech*', 'ztraci'],
   },
   sv: {
     name: 'Swedish',
@@ -566,5 +585,6 @@ module.exports = {
     briefNoun: ['kort', 'korta', 'kortfattad', 'regeln'],
     answer: ['svar*'],
     strong: ['mindre snack mer kod', 'mindre text mer kod', 'ja eller nej', 'en mening', 'pa en rad', 'rakt pa sak'],
+    missing: ['missar', 'tappar', 'saknas', 'hoppar over'],
   },
 };

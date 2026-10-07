@@ -1,6 +1,6 @@
 {
   "name": "asisaid",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Stop repeating yourself to your coding agent. Keeps your feedback in force all session and restores your own words after compaction.",
   "author": {
     "name": "batuhangoktepe"

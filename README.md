@@ -19,8 +19,9 @@ asisaid keeps your feedback in force for the whole session, for Claude Code and 
 
 The feedback people repeat most is "too long". Once you ask for brevity in any form, including the implicit ones ("way too much text", "skip the explanation", "every answer is an essay", "less talk, more code", "yes or no:"), asisaid switches the session to short mode:
 
-- Every reply comes in your language, with only what matters: the result, what you need to decide or do, and blockers.
-- Code, commands, error messages and questions for you are never cut. Code blocks don't count toward the limit.
+- Every reply comes in your language: the answer in the first line, then at most 5 short bullets.
+- Specifics are never cut: file paths, names, commands, numbers, error messages, decisions and questions for you. Explanations and repetition go instead. Code blocks don't count toward the limit.
+- If a reply still runs long, you don't have to read it: the rest is hidden on screen and a short version replaces it (Claude Code 2.1.289+).
 - Ask for detail in a message ("explain in detail", "walk me through") and that reply can be long.
 - Say "you can be more detailed now" or "forget the brevity thing" and short mode is off.
 
@@ -91,6 +92,7 @@ And in 30 live sessions (English, Turkish, Spanish, German, Japanese × Haiku, S
 | Hook | asisaid |
 |---|---|
 | `UserPromptSubmit` | Picks up new rules and adds the reminder |
+| `MessageDisplay` | Hides the rest of a reply on screen once it passes the limit |
 | `Stop` | Checks the reply against length and emoji rules, sends it back at most once per turn |
 | `PreCompact` | Snapshots your words before the summary replaces them |
 | `SessionStart` (compact) | Puts them back right after the summary |
@@ -110,7 +112,7 @@ Everything stays on your machine, in the plugin's own data directory. Nothing is
 
 ## Limitations
 
-- The check runs when the reply is finished, so the long reply is already on screen; the corrected one follows right after.
+- On Codex and on older Claude Code versions there is no on-screen hiding: a long reply stays visible and the short version follows right after.
 - Rules are detected without a model, so some phrasings will be missed (see Accuracy). Languages outside the 20 still get short mode, but rule detection there is weaker.
 - Only length and emoji are checked automatically. Other rules are reminded every turn.
 

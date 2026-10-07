@@ -137,18 +137,55 @@ test('short mode: directive in the user\'s language, detail requests and lifting
   const ctx = (prompt) => json(['prompt'], { ...s, prompt }).hookSpecificOutput.additionalContext;
   const long = Array(300).fill('word').join(' ');
 
-  assert.match(ctx('Your answers are way too long for me.'), /Reply in English with only what matters.*Never drop code/);
+  assert.match(ctx('Your answers are way too long for me.'), /Reply in English\. Put the answer in the first line, then at most 5 .*Keep every specific/);
   assert.strictEqual(json(['stop'], { ...s, last_assistant_message: long }).decision, 'block');
 
   assert.match(ctx('Explain the caching layer in detail, please.'), /asked for detail in this message/);
   assert.strictEqual(run(['stop'], { ...s, last_assistant_message: long }), '');
 
-  assert.match(ctx('What changed in the build?'), /only what matters/);
+  assert.match(ctx('What changed in the build?'), /Put the answer in the first line/);
   const out = json(['stop'], { ...s, last_assistant_message: long });
-  assert.match(out.reason, /in English, in at most \d+ words.*Keep any code, commands, error messages/);
+  assert.match(out.reason, /Write it again in English: the answer in the first line, then at most 5 bullets.*Keep every specific/);
+  assert.doesNotMatch(out.reason, /only saw the start/);
 
   assert.strictEqual(run(['prompt'], { ...s, prompt: 'You can be more detailed from here on.' }), '');
   assert.strictEqual(run(['stop'], { ...s, last_assistant_message: long }), '');
+});
+
+test('on screen, a long reply is cut at the limit and rewritten once', () => {
+  const s = { session_id: 's6', transcript_path: path.join(tmp, 'none.jsonl'), cwd: tmp };
+  run(['prompt'], { ...s, prompt: 'keep it short please' });
+  const DISPLAY = path.join(__dirname, '..', 'plugin', 'scripts', 'display.js');
+  const show = (input) => execFileSync('node', [DISPLAY], { input: JSON.stringify({ ...s, ...input }), env }).toString();
+  const line = (n) => Array(n).fill('word').join(' ') + '\n';
+  assert.strictEqual(show({ message_id: 'm1', index: 0, delta: line(100) }), '');
+  const cut = JSON.parse(show({ message_id: 'm1', index: 1, delta: line(50) })).hookSpecificOutput.displayContent;
+  assert.strictEqual(cut.split(/\s+/).filter((w) => w === 'word').length, 20);
+  assert.match(cut, /asisaid: shortening/);
+  assert.strictEqual(JSON.parse(show({ message_id: 'm1', index: 2, delta: line(30) })).hookSpecificOutput.displayContent, '');
+  const out = json(['stop'], { ...s, last_assistant_message: line(180) });
+  assert.strictEqual(out.decision, 'block');
+  assert.match(out.reason, /only saw the start of your last reply/);
+  assert.strictEqual(show({ message_id: 'm2', index: 0, delta: line(300) }), '');
+});
+
+test('on screen: code blocks are not counted and new messages start fresh', () => {
+  const s = { session_id: 's7', transcript_path: path.join(tmp, 'none.jsonl'), cwd: tmp };
+  run(['prompt'], { ...s, prompt: 'be concise' });
+  const DISPLAY = path.join(__dirname, '..', 'plugin', 'scripts', 'display.js');
+  const show = (input) => execFileSync('node', [DISPLAY], { input: JSON.stringify({ ...s, ...input }), env }).toString();
+  const code = '```js\n' + Array(400).fill('x').join(' ') + '\n```\n';
+  assert.strictEqual(show({ message_id: 'a', index: 0, delta: 'Here:\n' + code }), '');
+  assert.strictEqual(show({ message_id: 'a', index: 1, delta: Array(100).fill('w').join(' ') + '\n' }), '');
+  assert.strictEqual(show({ message_id: 'b', index: 0, delta: Array(110).fill('w').join(' ') + '\n' }), '');
+  run(['prompt'], { ...s, prompt: 'now explain the cache in detail' });
+  assert.strictEqual(show({ message_id: 'c', index: 0, delta: Array(500).fill('w').join(' ') + '\n' }), '');
+});
+
+test('a complaint about missing details is not a request for detail', () => {
+  const { classify } = require(SCRIPT);
+  assert.strictEqual(classify('your short answers keep missing important details').detail, false);
+  assert.strictEqual(classify('explain the cache in detail').detail, true);
 });
 
 test('Stop falls back to the transcript when the reply text is not passed', () => {
